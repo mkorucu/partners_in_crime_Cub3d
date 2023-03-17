@@ -1,13 +1,12 @@
 #include "lib/cub3d.h"
-void	setup_maze(t_cub3d **cub, char *map)
+void	transfer_map(t_cub3d **cub, char *map)
 {
 	char	*str;
 	char	*str2;
 	int		i;
 
-	*cub = ft_calloc(sizeof(t_cub3d) , 1);
+	(*cub) = ft_calloc(sizeof(t_cub3d) , 1);
 	(*cub)->fd = open(map, O_RDONLY);
-	printf("%d\n",(*cub)->fd);
 	str2 = get_next_line((*cub)->fd);
 	if (str2)
 		i = 1;
@@ -31,8 +30,11 @@ int	main(int ac, char **av)
 	{
 		t_cub3d	*cub;
 
-		setup_maze(&cub, av[1]);
-		checkers(cub);
+		transfer_map(&cub, av[1]);
+		if (!checkers(cub))
+			printf("success!\n");
+		else
+			printf("Failure\n");
 	}
 	else if (ac != 2)
 		perror("wrong number of argument!\n");
