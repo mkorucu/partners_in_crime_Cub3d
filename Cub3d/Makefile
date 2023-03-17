@@ -1,12 +1,12 @@
 NAME	=	cub3D
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -L./mlx - lmlx - framework AppKit -framework OpenGL - g
+CFLAGS	=	-Wall -Wextra -Werror #-L./mlx - lmlx - framework AppKit -framework OpenGL - g
 RM		=	rm -rf
-SRC		=	
-OBJ		=	$(SRC:.c=.o)
+OBJ		=	$(SRC:.c=.o) $(GNL:.c=.o) 
 LIBFT	=	lib/libft/libft.a
-mlx		=	/lib/mlx/mlx.a
-
+#mlx		=	/lib/mlx/mlx.a
+GNL		=	lib/gnl/get_next_line_utils.c lib/gnl/get_next_line.c
+SRC		=	main.c checkers/checkers.c checkers/extention_check.c 
 all:	$(NAME)
 
 #colors
@@ -19,23 +19,23 @@ RESET = "\033[0m"
 UP = "\033[A"
 CUT = "\033[K"
 
-(MLX):
-		@make -C ./mlx
+#(MLX):
+#		@make -C ./mlx
 
 $(LIBFT):
-	@make -C libft/
+	@make -C lib/libft/
 
-$(NAME): $(OBJ) $(LIBFT) $(MLX)
+$(NAME): $(OBJ) $(LIBFT) #$(MLX)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
-	@echo $(BLUE)cub3d is ready!
+	@echo $(BLUE)cub3d is ready! $(RESET)
 
 %.o: %.c $(INC)
-	@echo $(RED)Complining [$<]
+	@echo $(GREEN)Complining [$<]
 	@${CC} -c $< -o $@ -Wall -Werror -Wextra -g
 
 clean:
 	@$(RM) $(OBJ)
-	@echo $(RED)Removed [$(OBJ)]
+	@echo $(YELLOW)Removed [Objects]
 
 norm:
 	@norminette $(SRC)
@@ -44,9 +44,9 @@ norm:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) $(MLX)
-	@echo $(RED)Removed [$(NAME)]
-	@make fclean -C libft/
+#	@$(RM) $(MLX)
+	@echo $(YELLOW)Removed [$(NAME)]
+	@make fclean -C lib/libft/
 
 re: fclean all
 

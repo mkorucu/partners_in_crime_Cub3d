@@ -11,10 +11,17 @@
 # include "gnl/get_next_line.h"
 
 # define EXTENTION_ERROR 1
-
+# define WALLS_MISMATCH 2
 typedef	struct	s_cub3d
 {
 	char	**map;
+	int		xlen;
+	int		ylen;
+	int		fd;
 }				t_cub3d;
 
+
+int	checkers(t_cub3d *cub);
+int	extention_check(char *map_name);
+int	check_walls(t_cub3d *cub);
 #endif
