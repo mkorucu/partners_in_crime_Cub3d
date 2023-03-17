@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:38:17 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:19 by hgermiya         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:59:05 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,3 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	}
 	return (i);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char src[] = "burak";
-	char dest[] = "merdo";
-	printf("%lu\n", ft_strlcpy(dest, src, 5));
-	printf("%s\n", dest);
-	//printf("%lu\n", strlcpy(dest, src, 5));
-	//printf("%s", dest);
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:36:47 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:36:49 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:57:12 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:00:30 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,3 @@ void	*ft_memcpy(void	*dst, const void *src, size_t n)
 	}
 	return (kaynak);
 }
-/*
-int main()
-{
-	char src[] = "aysee";
-	char dst[] = "ald";
-
-	printf("%s\n", ft_memcpy(dst, src, 3));
-	printf("%s\n", memcpy(dst,src,3));
-}
-*/

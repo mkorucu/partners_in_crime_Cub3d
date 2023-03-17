@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:37:49 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:37:51 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:27 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:00:54 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,3 @@ char	*ft_strdup(const char *s1)
 	new[i] = '\0';
 	return (new);
 }
-/*
-int main()
-{
-	char *p = "e124246";
-
-	printf("%s\n", ft_strdup(p));
-	printf("%s", strdup(p));
-}
-*/

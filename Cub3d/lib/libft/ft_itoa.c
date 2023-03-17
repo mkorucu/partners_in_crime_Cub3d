@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:35:12 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:35:14 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:56:52 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:00:21 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,3 @@ char	*ft_itoa(int n)
 	res[i] = '\0';
 	return (res);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int	a = -2456;
-	printf("%s", ft_itoa(a));
-}*/

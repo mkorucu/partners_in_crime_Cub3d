@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:26:30 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:26:31 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:56:08 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:00:04 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-/*
-int main()
-{
-	char	a;
-	a = '?';
-
-	printf("%d", ft_isalnum(a));
-}
-*/

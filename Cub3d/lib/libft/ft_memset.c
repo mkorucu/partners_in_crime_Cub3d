@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:36:58 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:36:59 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:57:28 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 15:57:32 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 
@@ -26,11 +27,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (p);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char arr[] = "eyupgulerke";
-	printf("%s", ft_memset(arr, 'x', 3));
-}
-*/

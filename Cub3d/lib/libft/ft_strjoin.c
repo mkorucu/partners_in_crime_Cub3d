@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:00 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:03 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:41 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:01 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char *s1;
-	char *s2;
-
-	s1 = "eyup";
-	s2 = "guler";
-	printf("%s",ft_strjoin(s1, s2));
-}
-*/

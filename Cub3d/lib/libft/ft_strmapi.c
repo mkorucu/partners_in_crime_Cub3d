@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:24 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:25 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:59:28 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 15:59:32 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (0);
 }
-/*
-char	f(unsigned int a, char b)
-{
-	unsigned int alpha;
-	alpha = a;
-	return (b - 32);
-}
-
-int main()
-{
-	char *arr = "eyupguler";
-	printf("%s", ft_strmapi(arr, f));
-}
-*/

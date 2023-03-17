@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:09 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:11 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:56 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:04 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (ft_strlen(dst) + ft_strlen(&src[k]));
 }
-/*
-#include <string.h>
-#include <stdio.h>
-int main()
-{
-	char dst[] = "eyup";
-	char src[] = "guler";
-
-	printf("%lu", ft_strlcat(dst, src, 4));
-	printf("%s", dst);
-	//printf("%lu", strlcat(dst,src,5));
-	//printf("%s",dst);
-}
-*/

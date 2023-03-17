@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:35 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:37 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 16:01:19 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:24 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char haystack[] = "Salih burak coskun";
-	char needle[] = "h";
-	printf("%s\n", ft_strnstr(haystack, needle, 5));
-	printf("%s", strnstr(haystack, needle, 5));
-}
-*/

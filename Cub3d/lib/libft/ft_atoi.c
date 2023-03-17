@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:26:20 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:26:22 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:55:58 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 15:59:57 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,3 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)num * neg);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-int main()
-{
-	char *p = "   +8sg5";
-	printf("%d\n", ft_atoi(p));
-	printf("%d", atoi(p));
-}
-*/

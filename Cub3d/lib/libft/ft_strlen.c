@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:21 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:22 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:59:11 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:11 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,3 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
-/*
-int main()
-{
-	char arr[] = "eyupgu";
-	printf("%zu", ft_strlen(arr));
-}
-*/

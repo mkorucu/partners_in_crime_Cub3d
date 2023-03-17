@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:55 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:56 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 16:01:53 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:57 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char arr[] = "eyupgulercan";
-	printf("%zu\n", ft_strlen(arr));
-	printf("%s\n",ft_substr(arr, 2, 5 ));
-	printf("%zu",ft_strlen((const char *)(ft_substr(arr, 2, 10 ))));
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:39:05 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:39:07 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 16:02:13 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:02:18 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,3 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int	alphabet;
-	alphabet = 'k';
-	printf("%c",ft_toupper(alphabet));
-}
-*/

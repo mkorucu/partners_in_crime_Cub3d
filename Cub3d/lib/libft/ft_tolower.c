@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:39:00 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:39:02 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 16:02:03 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:02:08 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int	alphabet;
-	alphabet = 'K';
-	printf("%c",ft_tolower(alphabet));
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:37:56 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:37:57 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:33 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:00:57 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		}
 	}
 }
-/*
-void	f(unsigned int a, char *b)
-{
-	int alpha;
-	alpha = a;
-	int i;
-	i = 0;
-	while (b[i] != '\0')
-	{
-		b[i] = b[i] + 1;
-		i++;
-	}
-}
-
-int main()
-{
-	char arr[] = "eyup";
-	ft_striteri(arr, f);
-	printf("%s", arr);
-}
-*/

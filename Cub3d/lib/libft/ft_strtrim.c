@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:38:51 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:38:53 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:55:49 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 16:01:47 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,3 @@ char	*ft_strtrim(char *s1, char const *set)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char *s1 = "eyupguler";
-	char *set = "ey";
-	printf("%s", ft_strtrim(s1, set));
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:37:29 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:37:30 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:16 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 15:59:42 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char s[] = "salih burak";
-	printf("%s", ft_strchr(s, 'b'));
-}
-*/

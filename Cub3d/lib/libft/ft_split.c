@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgermiya <hgermiya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 16:37:25 by hgermiya          #+#    #+#             */
-/*   Updated: 2022/11/29 16:37:35 by hgermiya         ###   ########.fr       */
+/*   Created: 2023/03/17 15:58:05 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/17 15:58:13 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char *s;
-	char **a;
-	s = "ebrar genc eyup semih ";
-	a = ft_split(s, ' ');
-	for (size_t i = 0; i < 4; i++)
-		printf("%s\n",a[i]);
-}
-*/
