@@ -14,17 +14,22 @@
 # define WALLS_MISMATCH 2
 # define UNKNOWN_CHARACTER 3
 # define DIRECTION_MISMATCH 4
+
 typedef	struct	s_cub3d
 {
-	char	**map;
-	int		xlen;
-	int		ylen;
+	char	**map_file;
+	int		map_heigh;
+	char	*east;
+	char	*south;
+	char	*north;
+	char	*west;
+	int		test;
 	int		fd;
 }				t_cub3d;
 
 
 int	checkers(t_cub3d *cub);
 int	extention_check(char *map_name);
-int	check_walls(t_cub3d *cub);
 int	check_characters(t_cub3d *cub);
+int	check_directions(t_cub3d *cub);
 #endif

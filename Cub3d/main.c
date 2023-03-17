@@ -1,5 +1,5 @@
 #include "lib/cub3d.h"
-void	transfer_map(t_cub3d **cub, char *map)
+void	import_map(t_cub3d **cub, char *map)
 {
 	char	*str;
 	char	*str2;
@@ -11,7 +11,6 @@ void	transfer_map(t_cub3d **cub, char *map)
 	if (str2)
 		i = 1;
 	str = get_next_line((*cub)->fd);
-	(*cub)->xlen = ft_strlen(str2);
 	while (str)
 	{
 		i++;
@@ -19,10 +18,11 @@ void	transfer_map(t_cub3d **cub, char *map)
 		free(str);
 		str = get_next_line((*cub)->fd);
 	}
-	(*cub)->ylen = i;
-	(*cub)->map = ft_split(str2, '\n');
+	(*cub)->map_heigh = i;
+	(*cub)->map_file = ft_split(str2, '\n');
 	free(str2);
 }
+
 
 int	main(int ac, char **av)
 {
@@ -30,11 +30,12 @@ int	main(int ac, char **av)
 	{
 		t_cub3d	*cub;
 
-		transfer_map(&cub, av[1]);
+		import_map(&cub, av[1]);
 		if (!checkers(cub))
 			printf("success!\n");
 		else
 			printf("Failure\n");
+		//printf("%s\n%s\n%s\n%s\n",cub->east, cub->north, cub->south, cub->west);
 	}
 	else if (ac != 2)
 		perror("wrong number of argument!\n");
