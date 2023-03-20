@@ -7,7 +7,7 @@ LIBFT	=	lib/libft/libft.a
 #mlx		=	/lib/mlx/mlx.a
 GNL		=	lib/gnl/get_next_line_utils.c lib/gnl/get_next_line.c
 SRC		=	main.c checkers/checkers.c checkers/extention_check.c checkers/check_characters.c \
-			checkers/check_directions.c checkers/check_rgb.c
+			checkers/check_directions.c checkers/check_rgb.c checkers/check_is_open.c
 
 all:	$(NAME)
 

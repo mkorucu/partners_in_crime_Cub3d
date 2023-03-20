@@ -13,16 +13,17 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 
 int check_rgb(t_file *files)
 {
-    int	i;
-    int	check;
-
+    int     i;
+    int     check;
+    char    *str;
     i = 0;
     check = 0;
     while(files->map_file[i])
     {
-        if (ft_strcmp(files->map_file[i], "F"))
+		str = ft_strtrim(ft_strdup(files->map_file[i])," ");
+        if (ft_strcmp(str, "F"))
             set_direction(files, &files->rgb_f, i, &check);
-        if (ft_strcmp(files->map_file[i], "C"))
+        if (ft_strcmp(str, "C"))
             set_direction(files, &files->rgb_c, i, &check);
         i++;
     }

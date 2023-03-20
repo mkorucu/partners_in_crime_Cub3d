@@ -16,6 +16,7 @@
 # define DIRECTION_MISMATCH 4
 # define EMPTY_MAP 5
 # define RGB_MISMATCH 6
+# define CANNOT_OPEN 7
 
 typedef struct	s_file
 {
@@ -48,7 +49,8 @@ typedef	struct	s_cub3d
 
 int	checkers(t_cub3d *cub);
 int	extention_check(char *map_name);
-int	check_characters(t_file *files);
+int	check_characters(char **str);
 int	check_directions(t_file *files);
 int check_rgb(t_file *files);
+int	check_is_open(t_file *files);
 #endif
