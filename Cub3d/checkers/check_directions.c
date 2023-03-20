@@ -1,38 +1,36 @@
 #include "../lib/cub3d.h"
 
-static void	set_direction(t_cub3d *cub, char **str, int i,int *check)
+static void	set_direction(t_file *files, char **str, int i,int *check)
 {
 	if (!*str)
 	{
 		(*check)++;
-		*str = ft_strdup(&cub->map_file[i][2]);
+		*str = ft_strdup(&files->map_file[i][2]);
 		*str = ft_strtrim(*str, " ");
 	}
 	return ;
 }
 
-int	check_directions(t_cub3d *cub)
+int	check_directions(t_file *files)
 {
 	int	i;
 	int	check;
 
 	i = 0;
 	check = 0;
-	while(cub->map_file[i])
+	while(files->map_file[i])
 	{
-		cub->map_file[i] = ft_strtrim(cub->map_file[i], " ");
-		if (!ft_strncmp(cub->map_file[i], "EA",2))
-			set_direction(cub, &cub->east, i, &check);
-		if (!ft_strncmp(cub->map_file[i], "SO",2))
-			set_direction(cub, &cub->south, i, &check);
-		if (!ft_strncmp(cub->map_file[i], "NO",2))
-			set_direction(cub, &cub->north, i, &check);
-		if (!ft_strncmp(cub->map_file[i], "WE",2))
-			set_direction(cub, &cub->west, i, &check);
+		if (ft_strcmp(files->map_file[i], "EA"))
+			set_direction(files, &files->east, i, &check);
+		if (ft_strcmp(files->map_file[i], "SO"))
+			set_direction(files, &files->south, i, &check);
+		if (ft_strcmp(files->map_file[i], "NO"))
+			set_direction(files, &files->north, i, &check);
+		if (ft_strcmp(files->map_file[i], "WE"))
+			set_direction(files, &files->west, i, &check);
 		i++;
 	}
-	if (i != 4)
+	if (check != 4)
 		return (DIRECTION_MISMATCH);
-	
 	return 0;
 }
