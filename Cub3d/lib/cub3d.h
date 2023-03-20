@@ -14,10 +14,27 @@
 # define WALLS_MISMATCH 2
 # define UNKNOWN_CHARACTER 3
 # define DIRECTION_MISMATCH 4
+# define EMPTY_MAP 5
+# define RGB_MISMATCH 6
+
+typedef struct	s_file
+{
+	int		fd_map;
+	int		fd_east;
+	int		fd_south;
+	int		fd_north;
+	int		fd_west;
+	char	**map_file;
+	char	*east;
+	char	*south;
+	char	*north;
+	char	*west;
+	char	*rgb_f;
+	char	*rgb_c;
+}				t_file;
 
 typedef	struct	s_cub3d
 {
-	char	**map_file;
 	int		map_heigh;
 	char	*east;
 	char	*south;
@@ -25,11 +42,13 @@ typedef	struct	s_cub3d
 	char	*west;
 	int		test;
 	int		fd;
+	t_file	*files;
 }				t_cub3d;
 
 
 int	checkers(t_cub3d *cub);
 int	extention_check(char *map_name);
-int	check_characters(t_cub3d *cub);
-int	check_directions(t_cub3d *cub);
+int	check_characters(t_file *files);
+int	check_directions(t_file *files);
+int check_rgb(t_file *files);
 #endif

@@ -1,28 +1,31 @@
 #include "lib/cub3d.h"
-void	import_map(t_cub3d **cub, char *map)
+
+static int	import_map_file(t_cub3d **cub, char *map)
 {
 	char	*str;
 	char	*str2;
 	int		i;
 
 	(*cub) = ft_calloc(sizeof(t_cub3d) , 1);
-	(*cub)->fd = open(map, O_RDONLY);
-	str2 = get_next_line((*cub)->fd);
-	if (str2)
-		i = 1;
-	str = get_next_line((*cub)->fd);
+	(*cub)->files = ft_calloc(sizeof(t_file), 1);
+	(*cub)->files->fd_map = open(map, O_RDONLY);
+	str2 = get_next_line((*cub)->files->fd_map);
+	if (!str2)
+		return (EMPTY_MAP);
+	i = 1;
+	str = get_next_line((*cub)->files->fd_map);
 	while (str)
 	{
 		i++;
 		str2 = ft_strjoin(str2, str);
 		free(str);
-		str = get_next_line((*cub)->fd);
+		str = get_next_line((*cub)->files->fd_map);
 	}
 	(*cub)->map_heigh = i;
-	(*cub)->map_file = ft_split(str2, '\n');
+	(*cub)->files->map_file = ft_split(str2, '\n');
 	free(str2);
+	return (0);
 }
-
 
 int	main(int ac, char **av)
 {
@@ -30,12 +33,14 @@ int	main(int ac, char **av)
 	{
 		t_cub3d	*cub;
 
-		import_map(&cub, av[1]);
+		if (import_map_file(&cub, av[1]))
+			printf("Error!\n");
 		if (!checkers(cub))
 			printf("success!\n");
 		else
 			printf("Failure\n");
-		//printf("%s\n%s\n%s\n%s\n",cub->east, cub->north, cub->south, cub->west);
+		//printf("ea: %s\nno: %s\nso: %s\nwe: %s\n",cub->files->east, cub->files->north, cub->files->south, cub->files->west);
+		//printf("s: %s\nf: %s\n",cub->files->rgb_c, cub->files->rgb_f);
 	}
 	else if (ac != 2)
 		perror("wrong number of argument!\n");
