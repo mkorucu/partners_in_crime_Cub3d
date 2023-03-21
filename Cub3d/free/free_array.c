@@ -1,15 +1,14 @@
 #include "../lib/cub3d.h"
 
-int	free_array(char **arr)
+void	free_array(char **arr)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = 0;
-	while (arr[len])
-		len++;
-	while (i < len)
+	while (arr[i])
+	{
 		free(arr[i]);
+		i++;
+	}
 	free(arr);
 }

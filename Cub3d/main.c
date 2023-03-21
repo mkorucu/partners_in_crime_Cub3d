@@ -21,7 +21,6 @@ static int	import_map_file(t_cub3d **cub, char *map)
 		free(str);
 		str = get_next_line((*cub)->files->fd_map);
 	}
-	(*cub)->map_heigh = i;
 	(*cub)->files->map_file = ft_split(str2, '\n');
 	free(str2);
 	return (0);

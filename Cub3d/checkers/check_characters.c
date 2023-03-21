@@ -23,7 +23,6 @@ int	check_characters(char **str)
 	i = -1;
 	while(str[++i])
 	{
-		printf("test %d\n",i);
 		curr = ft_strtrim(ft_strdup(str[i]), " ");
 		if (ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
 		|| ft_strcmp(curr, "NO") || ft_strcmp(curr, "WE") \

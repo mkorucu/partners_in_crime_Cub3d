@@ -18,6 +18,15 @@
 # define RGB_MISMATCH 6
 # define CANNOT_OPEN 7
 
+
+
+typedef struct	s_rgb
+{
+	int	r;
+	int	g;
+	int	b;
+}				t_rgb;
+
 typedef struct	s_file
 {
 	int		fd_map;
@@ -32,19 +41,17 @@ typedef struct	s_file
 	char	*west;
 	char	*rgb_f;
 	char	*rgb_c;
+	t_rgb	f;
+	t_rgb	c;
 }				t_file;
 
 typedef	struct	s_cub3d
 {
 	int		map_heigh;
-	char	*east;
-	char	*south;
-	char	*north;
-	char	*west;
-	int		test;
-	int		fd;
 	t_file	*files;
 }				t_cub3d;
+
+void	free_array(char **arr);
 
 
 int	checkers(t_cub3d *cub);
