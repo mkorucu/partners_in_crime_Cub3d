@@ -47,6 +47,7 @@ typedef struct	s_file
 
 typedef	struct	s_cub3d
 {
+	char	**map;
 	int		map_heigh;
 	t_file	*files;
 }				t_cub3d;

@@ -33,13 +33,11 @@ int	main(int ac, char **av)
 		t_cub3d	*cub;
 
 		if (import_map_file(&cub, av[1]))
-			printf("Error!\n");
-		if (!checkers(cub))
-			printf("success!\n");
+			ft_putstr_fd("Error!\n", 2);
+		if (checkers(cub))
+			printf("failure\n");
 		else
-			printf("Failure\n");
-		//printf("ea: %s\nno: %s\nso: %s\nwe: %s\n",cub->files->east, cub->files->north, cub->files->south, cub->files->west);
-		//printf("s: %s\nf: %s\n",cub->files->rgb_c, cub->files->rgb_f);
+			printf("helal\n");
 	}
 	else if (ac != 2)
 		perror("wrong number of argument!\n");

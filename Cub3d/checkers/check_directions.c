@@ -6,7 +6,7 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 	{
 		(*check)++;
 		*str = ft_strdup(&files->map_file[i][2]);
-		*str = ft_strtrim(*str, " ");
+		*str = ft_strtrim(*str, "\t ");
 	}
 	return ;
 }
@@ -20,7 +20,7 @@ int	check_directions(t_file *files)
 	check = 0;
 	while(files->map_file[i])
 	{
-		str = ft_strtrim(ft_strdup(files->map_file[i])," ");
+		str = ft_strtrim(ft_strdup(files->map_file[i]),"\t ");
 		if (ft_strcmp(str, "EA"))
 			set_direction(files, &files->east, i, &check);
 		if (ft_strcmp(str, "SO"))

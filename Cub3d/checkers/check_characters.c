@@ -3,14 +3,18 @@
 
 static int	compare(char *str)
 {
+	static int	i;
+
 	while (*str)
 	{
-		if (*str == '1' || *str == '0' || *str  == 'E' || *str == 'W' || \
-		*str == 'S' || *str == 'N' || *str == ' ' || *str == '\t')
-			str++;
-		else
+		if (*str  == 'E' || *str == 'W' || *str == 'S' || *str == 'N')
+			i++;
+		else if (*str != '1' && *str != '0' && *str != ' ' && *str != '\t')
 			return (UNKNOWN_CHARACTER);
+		str++;
 	}
+	if (i > 1)
+		return (UNKNOWN_CHARACTER);
 	return (0);
 }
 
@@ -18,24 +22,18 @@ int	check_characters(char **str)
 {
 	int		i;
 	char	*curr;
-	int		j;
-
 	i = -1;
 	while(str[++i])
 	{
-		curr = ft_strtrim(ft_strdup(str[i]), " ");
+		curr = ft_strtrim(ft_strdup(str[i]), "\t ");
 		if (ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
 		|| ft_strcmp(curr, "NO") || ft_strcmp(curr, "WE") \
 		|| ft_strcmp(curr, "F") || ft_strcmp(curr, "C"))
 			free(curr);
-		else
+		else if (compare(curr))
 		{
 			free(curr);
-			j = 0;
-			while (str[i][j] == ' ' || str[i][j] == '\t')
-				j++;
-			if (compare(&str[i][j]))
-				return (UNKNOWN_CHARACTER);
+			return (UNKNOWN_CHARACTER);
 		}
 	}
 	return (0);
