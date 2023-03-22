@@ -34,5 +34,5 @@ int	check_directions(t_file *files)
 	}
 	if (check != 4)
 		return (DIRECTION_MISMATCH);
-	return 0;
+	return (VALID);
 }
