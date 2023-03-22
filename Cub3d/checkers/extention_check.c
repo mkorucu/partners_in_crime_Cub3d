@@ -6,7 +6,7 @@ int	extention_check(char *map_name)
 
 	len = ft_strlen(map_name);
 	if (ft_strcmp(&map_name[len - 4], ".cub"))
-		return (0);
+		return (VALID);
 	else
 		return (EXTENTION_ERROR);
 }

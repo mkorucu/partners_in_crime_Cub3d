@@ -1,40 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_characters.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/22 09:46:47 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/03/22 10:05:28 by mkorucu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../lib/cub3d.h"
 
 
-static int	compare(char *str)
+static int	compare(t_cub3d *cub, char **str)
 {
-	static int	i;
+	int	i;
+	int	j;
+	int	count;
 
-	while (*str)
+	count = 0;
+	i = -1;
+	while (str[++i])
 	{
-		if (*str  == 'E' || *str == 'W' || *str == 'S' || *str == 'N')
-			i++;
-		else if (*str != '1' && *str != '0' && *str != ' ' && *str != '\t')
-			return (UNKNOWN_CHARACTER);
-		str++;
+		j = -1;
+		while (str[i][++j])
+		{
+			if (ft_strchr("WESN", str[i][j]))
+			{
+				cub->start = str[i][j];
+				cub->start_x = j;
+				cub->start_y = i;
+				count++;
+			}
+			else if (!ft_strchr("10 \t", str[i][j]))
+				return (UNKNOWN_CHARACTER);
+		}
 	}
-	if (i > 1)
+	if (count != 1)
 		return (UNKNOWN_CHARACTER);
 	return (0);
 }
 
-int	check_characters(char **str)
+int	check_characters(char **str, t_cub3d *cub)
 {
 	int		i;
 	char	*curr;
-	i = -1;
-	while(str[++i])
-	{
-		curr = ft_strtrim(ft_strdup(str[i]), "\t ");
-		if (ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
+
+	i = 0;
+	curr = ft_strtrim(ft_strdup(*str), "\t ");
+	while(ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
 		|| ft_strcmp(curr, "NO") || ft_strcmp(curr, "WE") \
 		|| ft_strcmp(curr, "F") || ft_strcmp(curr, "C"))
-			free(curr);
-		else if (compare(curr))
-		{
-			free(curr);
-			return (UNKNOWN_CHARACTER);
-		}
+	{
+		free(curr);
+		i++;
+		curr = ft_strtrim(ft_strdup(str[i]), "\t ");
 	}
-	return (0);
+	free(curr);
+	if (compare(cub, &cub->files->map_file[i]))
+		return (UNKNOWN_CHARACTER);
+	return (VALID);
 }

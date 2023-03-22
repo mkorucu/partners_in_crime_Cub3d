@@ -10,5 +10,5 @@ int	check_is_open(t_file *files)
 		files->fd_north < 0 || files->fd_east < 0)
 		return (CANNOT_OPEN);
 	else
-		return (0);
+		return (VALID);
 }

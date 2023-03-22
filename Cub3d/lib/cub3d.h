@@ -10,14 +10,15 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 
-# define EXTENTION_ERROR 1
-# define WALLS_MISMATCH 2
-# define UNKNOWN_CHARACTER 3
-# define DIRECTION_MISMATCH 4
-# define EMPTY_MAP 5
-# define RGB_MISMATCH 6
-# define CANNOT_OPEN 7
-
+# define VALID				0
+# define EXTENTION_ERROR	1
+# define WALLS_MISMATCH		2
+# define UNKNOWN_CHARACTER	3
+# define DIRECTION_MISMATCH	4
+# define EMPTY_MAP			5
+# define RGB_MISMATCH		6
+# define CANNOT_OPEN		7
+# define SURROUND_MISMATCH	8
 
 
 typedef struct	s_rgb
@@ -48,6 +49,9 @@ typedef struct	s_file
 typedef	struct	s_cub3d
 {
 	char	**map;
+	char	start;
+	int		start_x;
+	int		start_y;
 	int		map_heigh;
 	t_file	*files;
 }				t_cub3d;
@@ -57,8 +61,9 @@ void	free_array(char **arr);
 
 int	checkers(t_cub3d *cub);
 int	extention_check(char *map_name);
-int	check_characters(char **str);
+int	check_characters(char **str, t_cub3d *cub);
 int	check_directions(t_file *files);
 int check_rgb(t_file *files);
 int	check_is_open(t_file *files);
+int	check_wall(t_cub3d *cub, char ch);
 #endif

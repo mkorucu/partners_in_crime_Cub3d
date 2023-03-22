@@ -71,5 +71,5 @@ int check_rgb(t_file *files)
 		return (RGB_MISMATCH);
 	if (check_validity(files->rgb_f) || check_validity(files->rgb_c))
 		return (RGB_MISMATCH);
-	return 0;
+	return (VALID);
 }
