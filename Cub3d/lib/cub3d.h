@@ -58,7 +58,7 @@ typedef	struct	s_cub3d
 
 void	free_array(char **arr);
 
-
+/*					Checkers					*/
 int	checkers(t_cub3d *cub);
 int	extention_check(char *map_name);
 int	check_characters(char **str, t_cub3d *cub);
@@ -66,4 +66,9 @@ int	check_directions(t_file *files);
 int check_rgb(t_file *files);
 int	check_is_open(t_file *files);
 int	check_wall(t_cub3d *cub, char ch);
+/* 					Free Functions				*/
+void	free_cub(t_cub3d *cub);
+void	free_files(t_file *files);
+void	free_array(char **arr);
+
 #endif

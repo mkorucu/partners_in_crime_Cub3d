@@ -28,19 +28,21 @@ static int	import_map_file(t_cub3d **cub, char *map)
 
 int	main(int ac, char **av)
 {
+	t_cub3d	*cub;
+
 	if (ac == 2 && !extention_check(av[1]))
 	{
-		t_cub3d	*cub;
-
 		if (import_map_file(&cub, av[1]))
 			ft_putstr_fd("Error!\n", 2);
 		if (checkers(cub))
 			printf("failure\n");
 		else
 			printf("helal\n");
+		free_cub(cub);
 	}
 	else if (ac != 2)
 		perror("wrong number of argument!\n");
 	else
 		perror("wrong file extention!\n");
+	return (0);
 }

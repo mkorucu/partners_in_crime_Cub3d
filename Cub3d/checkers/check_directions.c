@@ -8,7 +8,6 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 		*str = ft_strdup(&files->map_file[i][2]);
 		*str = ft_strtrim(*str, "\t ");
 	}
-	return ;
 }
 
 int	check_directions(t_file *files)
