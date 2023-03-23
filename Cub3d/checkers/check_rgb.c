@@ -66,6 +66,7 @@ int check_rgb(t_file *files)
 		if (ft_strcmp(str, "C"))
 			set_direction(files, &files->rgb_c, i, &check);
 		i++;
+		free(str);
 	}
 	if (check != 2)
 		return (RGB_MISMATCH);
