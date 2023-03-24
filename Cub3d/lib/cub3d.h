@@ -63,6 +63,15 @@ typedef struct s_image
 	int		bpp;
 }				t_image;
 
+typedef	struct	s_pos
+{
+	double	dir_x;
+	double	dir_y;
+	double	fov_x;
+	double	fov_y;
+
+}				t_pos;
+
 typedef	struct	s_cub3d
 {
 	void	*mlx;
@@ -71,6 +80,7 @@ typedef	struct	s_cub3d
 	char	start_direction;
 	int		start_x;
 	int		start_y;
+	t_pos	*pos;
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
