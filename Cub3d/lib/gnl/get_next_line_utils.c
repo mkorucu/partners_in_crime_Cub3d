@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taybakan <taybakan@student.42istanbul.com  +#+  +:+       +#+        */
+/*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 02:12:49 by taybakan          #+#    #+#             */
-/*   Updated: 2023/01/12 02:18:55 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/03/23 23:43:39 by bkeklik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
