@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 10:01:04 by mkorucu           #+#    #+#             */
-/*   Updated: 2023/03/22 10:12:38 by mkorucu          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../lib/cub3d.h"
 
 void	extract_map(t_cub3d *cub)
@@ -36,22 +24,21 @@ void	extract_map(t_cub3d *cub)
 	cub->map_heigh = i - j + 1;
 	i = 0;
 	while (str[j])
-		cub->map[i++] = str[j++];
+		cub->map[i++] = ft_strdup(str[j++]);
 }
 
 int	checkers(t_cub3d *cub)
 {
 	if (check_directions(cub->files)) //EA, WE vs yönleri ayıklıyor, 2 kez yazılanlarda ilkini kabul ediyor.
-		return (DIRECTION_MISMATCH);
+		errors("direction mismatch!\n");
 	// if (check_is_open(cub->files))
 	// 	return (CANNOT_OPEN);
 	if (check_rgb(cub->files))
-		return (RGB_MISMATCH);
+		errors("rgb mismatch!\n");
 	if (check_characters(cub->files->map_file, cub)) //E,W,S,N ve 0-1'leri kontrol ediyor
-		return (UNKNOWN_CHARACTER);
+		errors("unknown character!\n");
 	extract_map(cub);
-	if (check_wall(cub, 'N') || check_wall(cub, 'S') || check_wall(cub, 'E') \
-		|| check_wall(cub, 'W') || check_wall(cub, '0'))
-		return (SURROUND_MISMATCH);
+	if (check_wall(cub))
+		errors("surround mismatch!\n");
 	return (0);
 }
