@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taybakan <taybakan@student.42istanbul.com  +#+  +:+       +#+        */
+/*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 23:04:54 by taybakan          #+#    #+#             */
-/*   Updated: 2023/01/12 07:14:31 by taybakan         ###   ########.fr       */
+/*   Created: 2023/03/23 23:43:26 by bkeklik           #+#    #+#             */
+/*   Updated: 2023/03/23 23:43:27 by bkeklik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "get_next_line.h"
 
