@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkorucu <mkorucu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkorucu <mkorucu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 09:46:47 by mkorucu           #+#    #+#             */
-/*   Updated: 2023/03/22 10:05:28 by mkorucu          ###   ########.fr       */
+/*   Updated: 2023/03/24 22:56:14 by mkorucu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ static int	compare(t_cub3d *cub, char **str)
 		{
 			if (ft_strchr("WESN", str[i][j]))
 			{
-				cub->start = str[i][j];
+				cub->start_direction = str[i][j];
 				cub->start_x = j;
 				cub->start_y = i;
 				count++;
+				str[i][j] = 0;
 			}
 			else if (!ft_strchr("10 \t", str[i][j]))
 				return (UNKNOWN_CHARACTER);

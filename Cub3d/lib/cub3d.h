@@ -20,6 +20,12 @@
 # define CANNOT_OPEN		7
 # define SURROUND_MISMATCH	8
 
+# ifndef WIDTH
+# define WIDTH 1920
+# endif
+# ifndef HEIGHT
+# define HEIGHT 1080
+# endif
 
 typedef struct	s_rgb
 {
@@ -46,29 +52,57 @@ typedef struct	s_file
 	t_rgb	c;
 }				t_file;
 
+typedef struct s_image
+{
+	int		width;
+	int		height;
+	void	*image;
+	char	*address;
+	int		line;
+	int		endian;
+	int		bpp;
+}				t_image;
+
 typedef	struct	s_cub3d
 {
+	void	*mlx;
+	void	*mlx_win;
 	char	**map;
-	char	start;
+	char	start_direction;
 	int		start_x;
 	int		start_y;
 	int		map_heigh;
+	long	rgb_floor;
+	long	rgb_ceil;
 	t_file	*files;
+	t_image screen;
+	t_image	part_of_map;
+	t_image	walls[4];
+
+	t_image	floor;
+	t_image	ceiling;
 }				t_cub3d;
 
+
 void	free_array(char **arr);
+void	errors(char *str);
 
 /*					Checkers					*/
-int	checkers(t_cub3d *cub);
-int	extention_check(char *map_name);
-int	check_characters(char **str, t_cub3d *cub);
-int	check_directions(t_file *files);
-int check_rgb(t_file *files);
-int	check_is_open(t_file *files);
-int	check_wall(t_cub3d *cub, char ch);
+int		checkers(t_cub3d *cub);
+int		extention_check(char *map_name);
+int		check_characters(char **str, t_cub3d *cub);
+int		check_directions(t_file *files);
+int 	check_rgb(t_file *files);
+int		check_is_open(t_file *files);
+int		check_wall(t_cub3d *cub);
+
 /* 					Free Functions				*/
 void	free_cub(t_cub3d *cub);
 void	free_files(t_file *files);
 void	free_array(char **arr);
 
+/*					Initializing				*/
+int	import_map_file(t_cub3d **cub, char *map);
+void	init_map_textures(t_cub3d *cub, t_image *s, t_image *pom);
+void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls);
 #endif
