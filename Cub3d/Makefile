@@ -1,14 +1,16 @@
 NAME	=	cub3D
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror #-L./mlx - lmlx - framework AppKit -framework OpenGL - g
+CFLAGS	=	-Wall -Wextra -Werror -L./lib/mlx -lmlx -framework AppKit -framework OpenGL -g
 RM		=	rm -rf
-OBJ		=	$(SRC:.c=.o) $(GNL:.c=.o) 
+OBJ		=	$(SRC:.c=.o) $(GNL:.c=.o) $(CHECKS:.c=.o) $(FREE:.c=.o) $(INITS:.c=.o)
 LIBFT	=	lib/libft/libft.a
-#mlx		=	/lib/mlx/mlx.a
+MLX		=	lib/mlx/libmlx.a
 GNL		=	lib/gnl/get_next_line_utils.c lib/gnl/get_next_line.c
-SRC		=	main.c free_error/free_array.c checkers/checkers.c checkers/extention_check.c checkers/check_characters.c \
-			checkers/check_directions.c checkers/check_rgb.c checkers/check_is_open.c checkers/check_wall.c
-
+SRC		=	main.c
+CHECKS	=	checkers/extention_check.c checkers/check_characters.c checkers/check_directions.c\
+			checkers/checkers.c checkers/check_rgb.c checkers/check_is_open.c checkers/check_wall.c
+FREE	=	free_error/free_array.c free_error/errors.c
+INITS	=	init/import_map_file.c init/init_wall_textures.c init/init_map_textures.c
 all:	$(NAME)
 
 #colors
@@ -21,13 +23,15 @@ RESET = "\033[0m"
 UP = "\033[A"
 CUT = "\033[K"
 
-#(MLX):
-#		@make -C ./mlx
+all:	$(NAME)
+
+$(MLX):
+		@make -C ./lib/mlx
 
 $(LIBFT):
 	@make -C lib/libft/
 
-$(NAME): $(OBJ) $(LIBFT) #$(MLX)
+$(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
 	@echo $(BLUE)cub3d is ready! $(RESET)
 
