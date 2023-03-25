@@ -31,8 +31,8 @@ int	checkers(t_cub3d *cub)
 {
 	if (check_directions(cub->files)) //EA, WE vs yönleri ayıklıyor, 2 kez yazılanlarda ilkini kabul ediyor.
 		errors("direction mismatch!\n");
-	// if (check_is_open(cub->files))
-	// 	return (CANNOT_OPEN);
+	if (check_is_open(cub->files))
+		errors("cannot open assets");
 	if (check_rgb(cub->files))
 		errors("rgb mismatch!\n");
 	if (check_characters(cub->files->map_file, cub)) //E,W,S,N ve 0-1'leri kontrol ediyor

@@ -20,7 +20,7 @@ static int	compare(t_cub3d *cub, char **str)
 				cub->start_x = j;
 				cub->start_y = i;
 				count++;
-				str[i][j] = 0;
+				str[i][j] = '0';
 			}
 			else if (!ft_strchr("10 \t", str[i][j]))
 				return (UNKNOWN_CHARACTER);
