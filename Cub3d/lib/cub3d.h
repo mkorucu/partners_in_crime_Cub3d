@@ -97,7 +97,6 @@ typedef	struct	s_cub3d
 	t_key	keys;
 	t_file	*files;
 	t_image screen;
-	t_image	part_of_map;
 	t_image	walls[4];
 	t_image	floor;
 	t_image	ceiling;
@@ -123,7 +122,7 @@ void	free_array(char **arr);
 
 /*					Initializing				*/
 int	import_map_file(t_cub3d **cub, char *map);
-void	init_map_textures(t_cub3d *cub, t_image *s, t_image *pom);
+void	init_map_textures(t_cub3d *cub, t_image *s);
 void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls);
 void	start(t_cub3d *cub, t_file *files);
 
