@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   free_array.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 23:43:03 by bkeklik           #+#    #+#             */
-/*   Updated: 2023/03/23 23:44:51 by bkeklik          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../lib/cub3d.h"
 
 void	free_array(char **arr)
@@ -40,7 +28,44 @@ void	free_files(t_file *files)
 		free(files->rgb_f);
 	if (files->map_file)
 		free_array(files->map_file);
+	close(files->fd_east);
+	close(files->fd_map);
+	close(files->fd_north);
+	close(files->fd_south);
+	close(files->fd_west);
 	free(files);
+}
+
+void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
+{
+	if (c->address)
+		free(c->address);
+	if (c->image)
+		free(c->image);
+	if (f->address)
+		free(f->address);
+	if (f->image)
+		free(f->image);
+	if (walls[0].address)
+		free(walls[0].address);
+	if (walls[0].image)
+		free(walls[0].image);
+	if (walls[1].address)
+		free(walls[1].address);
+	if (walls[1].image)
+		free(walls[1].image);
+	if (walls[2].address)
+		free(walls[2].address);
+	if (walls[2].image)
+		free(walls[2].image);
+	if (walls[3].address)
+		free(walls[3].address);
+	if (walls[3].image)
+		free(walls[3].image);
+	if (screen->address)
+		free(screen->address);
+	if (screen->image)
+		free(screen->image);
 }
 
 void	free_cub(t_cub3d *cub)
@@ -49,5 +74,10 @@ void	free_cub(t_cub3d *cub)
 		free_files(cub->files);
 	if (cub->map)
 		free_array(cub->map);
+	free_images(&cub->ceiling, &cub->floor, cub->walls, &cub->screen);
+	if (cub->mlx)
+		free(cub->mlx);
+	if (cub->mlx_win)
+		free(cub->mlx_win);
 	free(cub);
 }

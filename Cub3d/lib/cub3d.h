@@ -67,7 +67,7 @@ typedef struct s_image
 	int		width;
 	int		height;
 	void	*image;
-	char	*address;
+	int		*address;
 	int		line;
 	int		endian;
 	int		bpp;
@@ -93,11 +93,12 @@ typedef	struct	s_cub3d
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
+	int		t_width;//texture's width
+	int		t_height;//texture's height
 	t_pos	pos;
 	t_key	keys;
 	t_file	*files;
 	t_image screen;
-	t_image	part_of_map;
 	t_image	walls[4];
 	t_image	floor;
 	t_image	ceiling;
@@ -123,8 +124,15 @@ void	free_array(char **arr);
 
 /*					Initializing				*/
 int	import_map_file(t_cub3d **cub, char *map);
-void	init_map_textures(t_cub3d *cub, t_image *s, t_image *pom);
+void	init_map_textures(t_cub3d *cub, t_image *s);
 void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls);
 void	start(t_cub3d *cub, t_file *files);
+void	setting_ceiling_floor(t_cub3d *cub);
+
+/*					Key Events					*/
+int	release_key(int	key, t_key *keys);
+int	press_key(int	key, t_key *keys);
+int	ft_exit(void);
+
 
 #endif

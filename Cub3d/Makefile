@@ -2,7 +2,7 @@ NAME	=	cub3D
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -L./lib/mlx -lmlx -framework AppKit -framework OpenGL -g
 RM		=	rm -rf
-OBJ		=	$(SRC:.c=.o) $(GNL:.c=.o) $(CHECKS:.c=.o) $(FREE:.c=.o) $(INITS:.c=.o)
+OBJ		=	$(SRC:.c=.o) $(GNL:.c=.o) $(CHECKS:.c=.o) $(FREE:.c=.o) $(INITS:.c=.o) $(LOOP:.c=.o)
 LIBFT	=	lib/libft/libft.a
 MLX		=	lib/mlx/libmlx.a
 GNL		=	lib/gnl/get_next_line_utils.c lib/gnl/get_next_line.c
@@ -10,7 +10,8 @@ SRC		=	main.c
 CHECKS	=	checkers/extention_check.c checkers/check_characters.c checkers/check_directions.c\
 			checkers/checkers.c checkers/check_rgb.c checkers/check_is_open.c checkers/check_wall.c
 FREE	=	free_error/free_array.c free_error/errors.c
-INITS	=	init/import_map_file.c init/init_wall_textures.c init/init_map_textures.c
+INITS	=	init/import_map_file.c init/init_wall_textures.c init/init_map_textures.c init/setting_ceiling_floor.c
+LOOP	=	loop/key_events.c
 all:	$(NAME)
 
 #colors
