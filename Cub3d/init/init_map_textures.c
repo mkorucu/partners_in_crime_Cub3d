@@ -3,7 +3,7 @@
 void	init_map_textures(t_cub3d *cub, t_image *s)
 {
 	s->image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);
-	s->address = mlx_get_data_addr(s->image, &s->bpp,&s->line, &s->endian);
+	s->address = (int *)mlx_get_data_addr(s->image, &s->bpp,&s->line, &s->endian);
 	s->width = WIDTH;
 	s->height = HEIGHT;
 }

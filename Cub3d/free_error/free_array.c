@@ -28,6 +28,11 @@ void	free_files(t_file *files)
 		free(files->rgb_f);
 	if (files->map_file)
 		free_array(files->map_file);
+	close(files->fd_east);
+	close(files->fd_map);
+	close(files->fd_north);
+	close(files->fd_south);
+	close(files->fd_west);
 	free(files);
 }
 
@@ -43,17 +48,24 @@ void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
 		free(f->image);
 	if (walls[0].address)
 		free(walls[0].address);
+	if (walls[0].image)
+		free(walls[0].image);
 	if (walls[1].address)
 		free(walls[1].address);
+	if (walls[1].image)
+		free(walls[1].image);
 	if (walls[2].address)
 		free(walls[2].address);
+	if (walls[2].image)
+		free(walls[2].image);
 	if (walls[3].address)
 		free(walls[3].address);
+	if (walls[3].image)
+		free(walls[3].image);
 	if (screen->address)
 		free(screen->address);
-	// if (screen->image)
-	// 	free(screen->image);
-	printf("test\n");
+	if (screen->image)
+		free(screen->image);
 }
 
 void	free_cub(t_cub3d *cub)
