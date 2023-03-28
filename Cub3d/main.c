@@ -8,7 +8,7 @@ void	print_map(t_cub3d *cub)
 	x = 0;
 	while (x < WIDTH)
 	{
-		camera_pos(cub, x);
+		camera_orientation(cub, &cub->ray, x);
 		
 	}
 }
