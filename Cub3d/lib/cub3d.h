@@ -34,16 +34,6 @@ typedef struct	s_rgb
 	int	b;
 }				t_rgb;
 
-typedef struct	s_key
-{
-	int	a;
-	int	s;
-	int	d;
-	int	w;
-	int	left;
-	int	right;
-}				t_key;
-
 typedef struct	s_file
 {
 	int		fd_map;
@@ -64,8 +54,7 @@ typedef struct	s_file
 
 typedef struct s_image
 {
-	int		width;
-	int		height;
+
 	void	*image;
 	int		*address;
 	int		line;
@@ -73,6 +62,23 @@ typedef struct s_image
 	int		bpp;
 }				t_image;
 
+typedef struct	s_key
+{
+	int	a;
+	int	s;
+	int	d;
+	int	w;
+	int	left;
+	int	right;
+}				t_key;
+
+typedef	struct s_ray
+{
+	int		ray_x;
+	int		ray_y;
+	double	ray_dir_x;
+	double	ray_dir_y;
+};
 typedef	struct	s_pos
 {
 	double	dir_x;
@@ -93,8 +99,10 @@ typedef	struct	s_cub3d
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
-	int		t_width;//texture's width
-	int		t_height;//texture's height
+	int		t_width;
+	int		t_height;
+	int		bg_width;
+	int		bg_height;
 	t_pos	pos;
 	t_key	keys;
 	t_file	*files;

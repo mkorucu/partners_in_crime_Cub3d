@@ -2,9 +2,8 @@
 
 void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls)
 {
-    cub->mlx = mlx_init();
-
-	cub->mlx_win = mlx_new_window(cub->mlx, WIDTH, HEIGHT, "cub3D");
+	cub->t_width = 64;
+	cub->t_height = 64;
     walls[0].image = mlx_xpm_file_to_image(cub->mlx,
             file->north, &cub->t_width, &cub->t_height);
     walls[1].image = mlx_xpm_file_to_image(cub->mlx,
