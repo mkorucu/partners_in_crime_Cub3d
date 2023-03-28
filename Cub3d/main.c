@@ -9,7 +9,6 @@ void	print_map(t_cub3d *cub)
 	while (x < WIDTH)
 	{
 		camera_orientation(cub, &cub->ray, x);
-		
 	}
 }
 
@@ -20,13 +19,14 @@ int	event_loop(t_cub3d *cub)
 	return (0);
 }
 
-
 void	start(t_cub3d *cub, t_file *files)
 {
     cub->mlx = mlx_init();
 	cub->mlx_win = mlx_new_window(cub->mlx, WIDTH, HEIGHT, "cub3D");
-	init_wall_textures(cub, files, cub->walls);
-	init_map_textures(cub, &cub->screen);
+	cub->screen.image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);
+	cub->screen.address = (int *)mlx_get_data_addr(cub->screen.image, &cub->screen.bpp,&cub->screen.line, &cub->screen.endian);
+	init_direction_vector(cub);
+	init_textures(cub, files, cub->walls, &cub->screen);
     cub->rgb_floor = (files->f.r << 16) + (files->f.g << 8) + files->f.b;
     cub->rgb_ceil = (files->c.r << 16) + (files->c.g << 8) + files->c.b;
 	mlx_loop_hook(cub->mlx, &event_loop, cub);
