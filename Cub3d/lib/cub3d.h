@@ -26,7 +26,8 @@
 # ifndef HEIGHT
 # define HEIGHT 1080
 # endif
-
+# define VERTICAL 0
+# define HORIZONTAL 1
 typedef struct	s_rgb
 {
 	int	r;
@@ -73,15 +74,25 @@ typedef struct	s_key
 
 typedef	struct	s_ray
 {
-	double	camera;
-	int		ray_x;
-	int		ray_y;
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	fovX;
+	double	fovY;
+	double	camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
-	double	dir_x;
-	double	dir_y;
-	double	fov_x;
-	double	fov_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		map_x;
+	int		map_y;
 }				t_ray;
 
 typedef	struct	s_cub3d
@@ -90,18 +101,15 @@ typedef	struct	s_cub3d
 	void	*mlx_win;
 	char	**map;
 	char	start_direction;
-	double	pos_x;
-	double	pos_y;
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
 	int		t_width;
 	int		t_height;
-	int		bg_width;
-	int		bg_height;
 	t_ray	ray;
 	t_key	keys;
 	t_file	*files;
+	/*	image files		*/
 	t_image screen;
 	t_image	walls[4];
 	t_image	floor;
@@ -128,8 +136,8 @@ void	free_array(char **arr);
 
 /*					Initializing				*/
 int	import_map_file(t_cub3d **cub, char *map);
-void	init_map_textures(t_cub3d *cub, t_image *s);
-void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls);
+void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
+void	init_direction_vector(t_cub3d *cub);
 void	start(t_cub3d *cub, t_file *files);
 void	setting_ceiling_floor(t_cub3d *cub);
 
