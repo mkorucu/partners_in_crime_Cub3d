@@ -54,7 +54,6 @@ typedef struct	s_file
 
 typedef struct s_image
 {
-
 	void	*image;
 	int		*address;
 	int		line;
@@ -72,21 +71,18 @@ typedef struct	s_key
 	int	right;
 }				t_key;
 
-typedef	struct s_ray
+typedef	struct	s_ray
 {
+	double	camera;
 	int		ray_x;
 	int		ray_y;
 	double	ray_dir_x;
 	double	ray_dir_y;
-};
-typedef	struct	s_pos
-{
 	double	dir_x;
 	double	dir_y;
 	double	fov_x;
 	double	fov_y;
-
-}				t_pos;
+}				t_ray;
 
 typedef	struct	s_cub3d
 {
@@ -94,8 +90,8 @@ typedef	struct	s_cub3d
 	void	*mlx_win;
 	char	**map;
 	char	start_direction;
-	int		start_x;
-	int		start_y;
+	double	pos_x;
+	double	pos_y;
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
@@ -103,7 +99,7 @@ typedef	struct	s_cub3d
 	int		t_height;
 	int		bg_width;
 	int		bg_height;
-	t_pos	pos;
+	t_ray	ray;
 	t_key	keys;
 	t_file	*files;
 	t_image screen;
@@ -142,5 +138,7 @@ int	release_key(int	key, t_key *keys);
 int	press_key(int	key, t_key *keys);
 int	ft_exit(void);
 
+/*					Camera Orientations			*/
+void    camera_orientation(t_cub3d *cub, t_ray *ray, int x);
 
 #endif
