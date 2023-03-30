@@ -8,9 +8,9 @@ void	setting_ceiling_floor(t_cub3d *cub)
 	i = 0;
 	while(i < WIDTH)
 	{
-		j = 0;
-		while (j < HEIGHT / 2)
-			cub->screen.address[j++ * WIDTH + i] = cub->rgb_floor;
+		j = -1;
+		while (++j < HEIGHT / 2)
+			cub->screen.address[j * WIDTH + i] = cub->rgb_ceil;
 		i++;
 	}
 	i = 0;
