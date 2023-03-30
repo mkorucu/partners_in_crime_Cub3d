@@ -24,7 +24,7 @@ void    side_checker(t_cub3d *cub, t_ray *ray)
 	}
 }
 
-void    perform_dda(t_cub3d *cub, t_ray *ray)
+void	perform_dda(t_cub3d *cub, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{
@@ -40,6 +40,10 @@ void    perform_dda(t_cub3d *cub, t_ray *ray)
 			ray->map_y = ray->step_y;
 			ray->side = HORIZONTAL; 
 		}
+		if (ray->map_x < 0)
+			ray->map_x = 0;
+		if (ray->map_y < 0)
+			ray->map_y = 0;
 		if (cub->map[ray->map_x][ray->map_y] == '1')
 			ray->hit = 1;
 	}
@@ -67,6 +71,20 @@ void	line_calculator(t_cub3d *cub, t_ray *ray)
 	else if (ray->side == HORIZONTAL && ray->step_y == -1)
 		ray->wall_side = 'S';
 }
+
+void	set_image(t_cub3d *cub, t_ray *ray)
+{
+	int	i;
+
+	if (ray->side == VERTICAL)
+		ray->wall_x = ray->pos_y + ray->perp_wall_dist * ray->ray_dir_y;
+	else
+		ray->wall_x = ray->pos_x + ray->perp_wall_dist * ray->ray_dir_x;
+	ray->wall_x -= floor(ray->wall_x);
+	ray->tex_x = (int)(ray->wall_x * (double) cub->t_width);
+	ray->step = 1.0 * cub->t_height / ray->line_height;
+	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * ray->step;
+}
 void    camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 {
 	ray->camera_x = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space. ranges [-1,1]
@@ -80,4 +98,5 @@ void    camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 	side_checker(cub, ray);
 	perform_dda(cub, ray);
 	line_calculator(cub, ray);
+	set_image(cub, ray);
 }

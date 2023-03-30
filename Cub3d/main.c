@@ -4,11 +4,16 @@ void	print_map(t_cub3d *cub)
 {
 	int	x;
 	int	y;
+	int	i;
 
 	x = 0;
 	while (x < WIDTH)
 	{
 		camera_orientation(cub, &cub->ray, x);
+		i = cub->ray.draw_start;
+		while (i < cub->ray.draw_end)
+			print_screen(cub, &cub->ray, ++i, x);
+		x++;
 	}
 }
 
