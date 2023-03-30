@@ -26,7 +26,8 @@
 # ifndef HEIGHT
 # define HEIGHT 1080
 # endif
-
+# define VERTICAL 0
+# define HORIZONTAL 1
 typedef struct	s_rgb
 {
 	int	r;
@@ -54,23 +55,45 @@ typedef struct	s_file
 
 typedef struct s_image
 {
-	int		width;
-	int		height;
 	void	*image;
-	char	*address;
+	int		*address;
 	int		line;
 	int		endian;
 	int		bpp;
 }				t_image;
 
-typedef	struct	s_pos
+typedef struct	s_key
 {
-	double	dir_x;
-	double	dir_y;
-	double	fov_x;
-	double	fov_y;
+	int	a;
+	int	s;
+	int	d;
+	int	w;
+	int	left;
+	int	right;
+}				t_key;
 
-}				t_pos;
+typedef	struct	s_ray
+{
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	fovX;
+	double	fovY;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		map_x;
+	int		map_y;
+}				t_ray;
 
 typedef	struct	s_cub3d
 {
@@ -78,17 +101,17 @@ typedef	struct	s_cub3d
 	void	*mlx_win;
 	char	**map;
 	char	start_direction;
-	int		start_x;
-	int		start_y;
-	t_pos	*pos;
 	int		map_heigh;
 	long	rgb_floor;
 	long	rgb_ceil;
+	int		t_width;
+	int		t_height;
+	t_ray	ray;
+	t_key	keys;
 	t_file	*files;
+	/*	image files		*/
 	t_image screen;
-	t_image	part_of_map;
 	t_image	walls[4];
-
 	t_image	floor;
 	t_image	ceiling;
 }				t_cub3d;
@@ -113,6 +136,17 @@ void	free_array(char **arr);
 
 /*					Initializing				*/
 int	import_map_file(t_cub3d **cub, char *map);
-void	init_map_textures(t_cub3d *cub, t_image *s, t_image *pom);
-void    init_wall_textures(t_cub3d *cub, t_file *file, t_image *walls);
+void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
+void	init_direction_vector(t_cub3d *cub);
+void	start(t_cub3d *cub, t_file *files);
+void	setting_ceiling_floor(t_cub3d *cub);
+
+/*					Key Events					*/
+int	release_key(int	key, t_key *keys);
+int	press_key(int	key, t_key *keys);
+int	ft_exit(void);
+
+/*					Camera Orientations			*/
+void    camera_orientation(t_cub3d *cub, t_ray *ray, int x);
+
 #endif

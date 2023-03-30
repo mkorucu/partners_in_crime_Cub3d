@@ -17,10 +17,10 @@ static int	compare(t_cub3d *cub, char **str)
 			if (ft_strchr("WESN", str[i][j]))
 			{
 				cub->start_direction = str[i][j];
-				cub->start_x = j;
-				cub->start_y = i;
+				cub->ray.posX = j;
+				cub->ray.posY = i;
 				count++;
-				str[i][j] = 0;
+				str[i][j] = '0';
 			}
 			else if (!ft_strchr("10 \t", str[i][j]))
 				return (UNKNOWN_CHARACTER);
