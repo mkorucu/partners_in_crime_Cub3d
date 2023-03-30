@@ -6,6 +6,22 @@ int	ft_exit(void)
 	return (1);
 }
 
+void	key_direction(t_cub3d *cub)
+{
+	if (cub->keys.w)
+		press_w_key(cub);
+	if (cub->keys.s)
+		press_s_key(cub);
+	if (cub->keys.a)
+		press_a_key(cub);
+	if (cub->keys.d)
+		press_d_key(cub);
+	if (cub->keys.right)
+		press_rot_a_key(cub);
+	if (cub->keys.left)
+		press_rot_d_key(cub);
+}
+
 int	press_key(int	key, t_key *keys)
 {
 	if (key == 53)
