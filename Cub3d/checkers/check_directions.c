@@ -12,14 +12,15 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 
 int	check_directions(t_file *files)
 {
-	int	i;
-	int	check;
+	int		i;
+	int		check;
 	char	*str;
+
 	i = 0;
 	check = 0;
-	while(files->map_file[i])
+	while (files->map_file[i])
 	{
-		str = ft_strtrim(ft_strdup(files->map_file[i]),"\t ");
+		str = ft_strtrim(ft_strdup(files->map_file[i]), "\t ");
 		if (ft_strcmp(str, "EA"))
 			set_direction(files, &files->east, i, &check);
 		if (ft_strcmp(str, "SO"))

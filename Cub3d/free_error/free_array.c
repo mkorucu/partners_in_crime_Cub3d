@@ -12,6 +12,7 @@ void	free_array(char **arr)
 	}
 	free(arr);
 }
+
 void	free_files(t_file *files)
 {
 	if (files->east)
@@ -22,7 +23,7 @@ void	free_files(t_file *files)
 		free(files->west);
 	if (files->north)
 		free(files->north);
-	if(files->rgb_c)
+	if (files->rgb_c)
 		free(files->rgb_c);
 	if (files->rgb_f)
 		free(files->rgb_f);

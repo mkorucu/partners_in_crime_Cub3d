@@ -1,6 +1,6 @@
 #include "../lib/cub3d.h"
 
-void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s)
+void	init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s)
 {
 	cub->t_width = 64;
 	cub->t_height = 64;
@@ -14,7 +14,7 @@ void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s)
 			file->west, &cub->t_width, &cub->t_height);
 	if (!cub->walls[0].image || !cub->walls[1].image
 		|| !cub->walls[2].image || !cub->walls[3].image)
-			errors("image transition error!\n");
+		errors("image transition error!\n");
 	walls[0].address = (int *)mlx_get_data_addr(walls[0].image,
 			&walls[0].bpp, &walls[0].line, &walls[0].endian);
 	walls[1].address = (int *)mlx_get_data_addr(walls[1].image,
@@ -24,5 +24,6 @@ void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s)
 	walls[3].address = (int *)mlx_get_data_addr(walls[3].image,
 			&walls[3].bpp, &walls[3].line, &walls[3].endian);
 	s->image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);
-	s->address = (int *)mlx_get_data_addr(s->image, &s->bpp,&s->line, &s->endian);
+	s->address = (int *)mlx_get_data_addr(s->image, &s->bpp,
+			&s->line, &s->endian);
 }

@@ -6,7 +6,7 @@ void	setting_ceiling_floor(t_cub3d *cub)
 	int	j;
 
 	i = 0;
-	while(i < WIDTH)
+	while (i < WIDTH)
 	{
 		j = -1;
 		while (++j < HEIGHT / 2)

@@ -1,6 +1,5 @@
 #include "../lib/cub3d.h"
 
-
 static int	compare(t_cub3d *cub, char **str)
 {
 	int	i;
@@ -38,7 +37,7 @@ int	check_characters(char **str, t_cub3d *cub)
 
 	i = 0;
 	curr = ft_strtrim(ft_strdup(*str), "\t ");
-	while(ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
+	while (ft_strcmp(curr, "EA") || ft_strcmp(curr, "SO") \
 		|| ft_strcmp(curr, "NO") || ft_strcmp(curr, "WE") \
 		|| ft_strcmp(curr, "F") || ft_strcmp(curr, "C"))
 	{

@@ -13,7 +13,7 @@ void	extract_map(t_cub3d *cub)
 	{
 		curr = ft_strtrim(ft_strdup(str[i]), "\t ");
 		if (curr[0] == '1' || curr[0] == '0')
-			break;
+			break ;
 		free(curr);
 	}
 	free(curr);

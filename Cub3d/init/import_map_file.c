@@ -5,7 +5,7 @@ int	import_map_file(t_cub3d **cub, char *map)
 	char	*str;
 	char	*str2;
 
-	(*cub) = ft_calloc(sizeof(t_cub3d) , 1);
+	(*cub) = ft_calloc(sizeof(t_cub3d), 1);
 	(*cub)->files = ft_calloc(sizeof(t_file), 1);
 	(*cub)->files->fd_map = open(map, O_RDONLY);
 	str2 = get_next_line((*cub)->files->fd_map);

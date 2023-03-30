@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkorucu <mkorucu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 23:42:56 by bkeklik           #+#    #+#             */
-/*   Updated: 2023/03/25 01:23:59 by mkorucu          ###   ########.fr       */
+/*   Updated: 2023/03/30 20:57:44 by bkeklik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	errors(char *str)
 {
 	ft_putstr_fd("Error\n",2);
 	ft_putstr_fd(str, 2);
-	exit(1);
+	exit (1);
 }

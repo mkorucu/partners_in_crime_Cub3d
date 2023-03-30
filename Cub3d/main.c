@@ -47,8 +47,8 @@ void	start(t_cub3d *cub, t_file *files)
 	cub->mlx_win = mlx_new_window(cub->mlx, WIDTH, HEIGHT, "cub3D");
 	init_direction_vector(cub);
 	init_textures(cub, files, cub->walls, &cub->screen);
-    cub->rgb_floor = (files->f.r << 16) + (files->f.g << 8) + files->f.b;
-    cub->rgb_ceil = (files->c.r << 16) + (files->c.g << 8) + files->c.b;
+	cub->rgb_floor = (files->f.r << 16) + (files->f.g << 8) + files->f.b;
+	cub->rgb_ceil = (files->c.r << 16) + (files->c.g << 8) + files->c.b;
 	mlx_loop_hook(cub->mlx, &event_loop, cub);
 	mlx_hook(cub->mlx_win, 2, 0, &press_key, &cub->keys);
 	mlx_hook(cub->mlx_win, 3, 0, &release_key, &cub->keys);

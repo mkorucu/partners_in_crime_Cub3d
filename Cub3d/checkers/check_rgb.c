@@ -2,8 +2,8 @@
 
 int	mini_atoi(char *str)
 {
-	int		i;
-	int		sum;
+	int	i;
+	int	sum;
 
 	sum = 0;
 	i = 0;
@@ -14,7 +14,7 @@ int	mini_atoi(char *str)
 		if (str[i] >= 48 && str[i] <= 57)
 			sum = 10 * sum + (str[i] - 48);
 		else
-			break;
+			break ;
 		i++;
 	}
 	while (str[i] == ' ' || str[i] == '\t')
@@ -30,13 +30,12 @@ static int	check_validity(char *rgb)
 	int		i;
 
 	i = -1;
-
 	str = ft_split(rgb, ',');
 	while (str[++i])
-		if (mini_atoi(str[i]) > 255 || mini_atoi(str[i]) < 0 )
-			break;
+		if (mini_atoi(str[i]) > 255 || mini_atoi(str[i]) < 0)
+			break ;
 	free_array(str);
-	if (i != 3 )
+	if (i != 3)
 		return (RGB_MISMATCH);
 	return (0);
 }
@@ -53,7 +52,7 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 
 void	get_rgb(char *ceil, char *floor, t_file *files)
 {
-	char **color;
+	char	**color;
 
 	color = ft_split(ceil, ',');
 	files->c.r = ft_atoi(color[0]);
@@ -67,16 +66,17 @@ void	get_rgb(char *ceil, char *floor, t_file *files)
 	free_array(color);
 }
 
-int check_rgb(t_file *files)
+int	check_rgb(t_file *files)
 {
-	int     i;
-	int     check;
-	char    *str;
+	int		i;
+	int		check;
+	char	*str;
+
 	i = 0;
 	check = 0;
-	while(files->map_file[i])
+	while (files->map_file[i])
 	{
-		str = ft_strtrim(ft_strdup(files->map_file[i]),"\t ");
+		str = ft_strtrim(ft_strdup(files->map_file[i]), "\t ");
 		if (ft_strcmp(str, "F"))
 			set_direction(files, &files->rgb_f, i, &check);
 		if (ft_strcmp(str, "C"))

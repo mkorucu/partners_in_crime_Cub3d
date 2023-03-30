@@ -1,6 +1,6 @@
 #include "../lib/cub3d.h"
 
-void    side_checker(t_ray *ray)
+void	side_checker(t_ray *ray)
 {
 	if (ray->ray_dir_x < 0)
 	{
@@ -38,7 +38,7 @@ void	perform_dda(t_cub3d *cub, t_ray *ray)
 		{
 			ray->side_dist_y += ray->delta_dist_y;
 			ray->map_y += ray->step_y;
-			ray->side = HORIZONTAL; 
+			ray->side = HORIZONTAL;
 		}
 		if (ray->map_x < 0)
 			ray->map_x = 0;
@@ -83,7 +83,8 @@ void	set_image(t_cub3d *cub, t_ray *ray)
 	ray->step = 1.0 * cub->t_height / ray->line_height;
 	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * ray->step;
 }
-void    camera_orientation(t_cub3d *cub, t_ray *ray, int x)
+
+void	camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 {
 	ray->camera_x = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space. ranges [-1,1]
 	ray->ray_dir_x = ray->dir_x + ray->fov_x * ray->camera_x; // ışının yönü, 
