@@ -6,7 +6,7 @@ int	ft_exit(void)
 	return (1);
 }
 
-    int	press_key(int	key, t_key *keys)
+int	press_key(int	key, t_key *keys)
 {
 	if (key == 53)
 		exit(0);

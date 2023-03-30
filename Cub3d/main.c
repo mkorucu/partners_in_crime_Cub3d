@@ -26,6 +26,8 @@ int	event_loop(t_cub3d *cub)
 
 void	start(t_cub3d *cub, t_file *files)
 {
+	cub->ray.rot_speed = 0.05;
+	cub->ray.move_speed = 0.1;
     cub->mlx = mlx_init();
 	cub->mlx_win = mlx_new_window(cub->mlx, WIDTH, HEIGHT, "cub3D");
 	cub->screen.image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);

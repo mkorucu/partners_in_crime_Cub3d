@@ -102,6 +102,8 @@ typedef	struct	s_ray
 	int		tex_x;
 	double	step;
 	double	tex_pos;
+	double	rot_speed;
+	double	move_speed;
 }				t_ray;
 
 typedef	struct	s_cub3d
