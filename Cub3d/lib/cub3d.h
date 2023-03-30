@@ -74,12 +74,12 @@ typedef struct	s_key
 
 typedef	struct	s_ray
 {
-	double	posX;
-	double	posY;
-	double	dirX;
-	double	dirY;
-	double	fovX;
-	double	fovY;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	fov_x;
+	double	fov_y;
 	double	camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
@@ -93,6 +93,11 @@ typedef	struct	s_ray
 	int		side;
 	int		map_x;
 	int		map_y;
+	double	perp_wall_dist;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	char	wall_side;
 }				t_ray;
 
 typedef	struct	s_cub3d
