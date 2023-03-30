@@ -1,6 +1,6 @@
 #include "../lib/cub3d.h"
 
-void    side_checker(t_cub3d *cub, t_ray *ray)
+void    side_checker(t_ray *ray)
 {
 	if (ray->ray_dir_x < 0)
 	{
@@ -24,23 +24,27 @@ void    side_checker(t_cub3d *cub, t_ray *ray)
 	}
 }
 
-void    perform_dda(t_cub3d *cub, t_ray *ray)
+void	perform_dda(t_cub3d *cub, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
 		{
 			ray->side_dist_x += ray->delta_dist_x;
-			ray->map_x = ray->step_x;
+			ray->map_x += ray->step_x;
 			ray->side = VERTICAL;
 		}
 		else
 		{
 			ray->side_dist_y += ray->delta_dist_y;
-			ray->map_y = ray->step_y;
+			ray->map_y += ray->step_y;
 			ray->side = HORIZONTAL; 
 		}
-		if (cub->map[ray->map_x][ray->map_y] == '1')
+		if (ray->map_x < 0)
+			ray->map_x = 0;
+		if (ray->map_y < 0)
+			ray->map_y = 0;
+		if (cub->map[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;
 	}
 	if (ray->side == VERTICAL)
@@ -49,7 +53,7 @@ void    perform_dda(t_cub3d *cub, t_ray *ray)
 		ray->perp_wall_dist = ray->side_dist_y - ray->delta_dist_y;
 }
 
-void	line_calculator(t_cub3d *cub, t_ray *ray)
+void	line_calculator(t_ray *ray)
 {
 	ray->line_height =(int)(HEIGHT / ray->perp_wall_dist);
 	ray->draw_start = (HEIGHT - ray->line_height) / 2;
@@ -67,6 +71,18 @@ void	line_calculator(t_cub3d *cub, t_ray *ray)
 	else if (ray->side == HORIZONTAL && ray->step_y == -1)
 		ray->wall_side = 'S';
 }
+
+void	set_image(t_cub3d *cub, t_ray *ray)
+{
+	if (ray->side == VERTICAL)
+		ray->wall_x = ray->pos_y + ray->perp_wall_dist * ray->ray_dir_y;
+	else
+		ray->wall_x = ray->pos_x + ray->perp_wall_dist * ray->ray_dir_x;
+	ray->wall_x -= floor(ray->wall_x);
+	ray->tex_x = (int)(ray->wall_x * (double) cub->t_width);
+	ray->step = 1.0 * cub->t_height / ray->line_height;
+	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * ray->step;
+}
 void    camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 {
 	ray->camera_x = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space. ranges [-1,1]
@@ -75,9 +91,10 @@ void    camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 	ray->hit = 0;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	ray->delta_dist_x = (ray->ray_dir_x == 0) ? 1e30 : abs(1/ray->ray_dir_x);
-	ray->delta_dist_y = (ray->ray_dir_y == 0) ? 1e30 : abs(1/ray->ray_dir_y);
-	side_checker(cub, ray);
+	ray->delta_dist_x = (ray->ray_dir_x == 0) ? 1e30 : fabs(1/ray->ray_dir_x);
+	ray->delta_dist_y = (ray->ray_dir_y == 0) ? 1e30 : fabs(1/ray->ray_dir_y);
+	side_checker(ray);
 	perform_dda(cub, ray);
-	line_calculator(cub, ray);
+	line_calculator(ray);
+	set_image(cub, ray);
 }
