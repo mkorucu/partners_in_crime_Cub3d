@@ -1,5 +1,5 @@
 #ifndef CUB3D_H
-#define CUB3D_H
+# define CUB3D_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -21,21 +21,22 @@
 # define SURROUND_MISMATCH	8
 
 # ifndef WIDTH
-# define WIDTH 1920
+#  define WIDTH 1920
 # endif
 # ifndef HEIGHT
-# define HEIGHT 1080
+#  define HEIGHT 1080
 # endif
 # define VERTICAL 0
 # define HORIZONTAL 1
-typedef struct	s_rgb
+
+typedef struct s_rgb
 {
 	int	r;
 	int	g;
 	int	b;
-}				t_rgb;
+}			t_rgb;
 
-typedef struct	s_file
+typedef struct s_file
 {
 	int		fd_map;
 	int		fd_east;
@@ -60,9 +61,9 @@ typedef struct s_image
 	int		line;
 	int		endian;
 	int		bpp;
-}				t_image;
+}			t_image;
 
-typedef struct	s_key
+typedef struct s_key
 {
 	int	a;
 	int	s;
@@ -72,7 +73,7 @@ typedef struct	s_key
 	int	right;
 }				t_key;
 
-typedef	struct	s_ray
+typedef struct s_ray
 {
 	double	pos_x;
 	double	pos_y;
@@ -106,9 +107,9 @@ typedef	struct	s_ray
 	double	move_speed;
 	int		tex_y;
 	int		color;
-}				t_ray;
+}		t_ray;
 
-typedef	struct	s_cub3d
+typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -123,12 +124,11 @@ typedef	struct	s_cub3d
 	t_key	keys;
 	t_file	*files;
 	/*	image files		*/
-	t_image screen;
+	t_image	screen;
 	t_image	walls[4]; // respectively: north, south, east and west
 	t_image	floor;
 	t_image	ceiling;
 }				t_cub3d;
-
 
 void	free_array(char **arr);
 void	errors(char *str);
@@ -138,7 +138,7 @@ int		checkers(t_cub3d *cub);
 int		extention_check(char *map_name);
 int		check_characters(char **str, t_cub3d *cub);
 int		check_directions(t_file *files);
-int 	check_rgb(t_file *files);
+int		check_rgb(t_file *files);
 int		check_is_open(t_file *files);
 int		check_wall(t_cub3d *cub);
 
@@ -149,13 +149,13 @@ void	free_array(char **arr);
 
 /*					Initializing				*/
 int		import_map_file(t_cub3d **cub, char *map);
-void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
+void	init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
 void	init_direction_vector(t_cub3d *cub);
 void	setting_ceiling_floor(t_cub3d *cub);
 void	start(t_cub3d *cub, t_file *files);
 /*					Key Events					*/
-int	release_key(int	key, t_key *keys);
-int	press_key(int	key, t_key *keys);
+int		release_key(int key, t_key *keys);
+int		press_key(int key, t_key *keys);
 void	key_direction(t_cub3d *cub);
 void	press_w_key(t_cub3d *cub3d);
 void	press_s_key(t_cub3d *cub3d);
@@ -163,14 +163,13 @@ void	press_a_key(t_cub3d *cub3d);
 void	press_d_key(t_cub3d *cub3d);
 void	press_rot_d_key(t_cub3d *cub3d);
 void	press_rot_a_key(t_cub3d *cub3d);
-int	ft_exit(void);
-
+int		ft_exit(void);
 /*					Printing Map				*/
 void	print_map(t_cub3d *cub);
-void    camera_orientation(t_cub3d *cub, t_ray *ray, int x);
+void	camera_orientation(t_cub3d *cub, t_ray *ray, int x);
 void	set_image(t_cub3d *cub, t_ray *ray);
 void	line_calculator(t_ray *ray);
 void	perform_dda(t_cub3d *cub, t_ray *ray);
-void    side_checker(t_ray *ray);
-void print_to_screen(t_cub3d *cub, t_ray *ray, int j, int i);
+void	side_checker(t_ray *ray);
+void	print_to_screen(t_cub3d *cub, t_ray *ray, int j, int i);
 #endif
