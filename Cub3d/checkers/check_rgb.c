@@ -51,6 +51,22 @@ static void	set_direction(t_file *files, char **str, int i,int *check)
 	}
 }
 
+void	get_rgb(char *ceil, char *floor, t_file *files)
+{
+	char **color;
+
+	color = ft_split(ceil, ',');
+	files->c.r = ft_atoi(color[0]);
+	files->c.g = ft_atoi(color[1]);
+	files->c.b = ft_atoi(color[2]);
+	free_array(color);
+	color = ft_split(floor, ',');
+	files->f.r = ft_atoi(color[0]);
+	files->f.g = ft_atoi(color[1]);
+	files->f.b = ft_atoi(color[2]);
+	free_array(color);
+}
+
 int check_rgb(t_file *files)
 {
 	int     i;
@@ -72,5 +88,6 @@ int check_rgb(t_file *files)
 		return (RGB_MISMATCH);
 	if (check_validity(files->rgb_f) || check_validity(files->rgb_c))
 		return (RGB_MISMATCH);
+	get_rgb(files->rgb_c, files->rgb_f, files);
 	return (VALID);
 }
