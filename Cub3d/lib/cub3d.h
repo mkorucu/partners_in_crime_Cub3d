@@ -156,6 +156,13 @@ void	start(t_cub3d *cub, t_file *files);
 /*					Key Events					*/
 int	release_key(int	key, t_key *keys);
 int	press_key(int	key, t_key *keys);
+void	key_direction(t_cub3d *cub);
+void	press_w_key(t_cub3d *cub3d);
+void	press_s_key(t_cub3d *cub3d);
+void	press_a_key(t_cub3d *cub3d);
+void	press_d_key(t_cub3d *cub3d);
+void	press_rot_d_key(t_cub3d *cub3d);
+void	press_rot_a_key(t_cub3d *cub3d);
 int	ft_exit(void);
 
 /*					Printing Map				*/

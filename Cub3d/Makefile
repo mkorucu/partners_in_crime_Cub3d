@@ -11,7 +11,7 @@ CHECKS	=	checkers/extention_check.c checkers/check_characters.c checkers/check_d
 			checkers/checkers.c checkers/check_rgb.c checkers/check_is_open.c checkers/check_wall.c
 FREE	=	free_error/free_array.c free_error/errors.c
 INITS	=	init/import_map_file.c init/init_direction_vector.c init/init_textures.c init/setting_ceiling_floor.c
-LOOP	=	loop/key_events.c loop/camera_orientation.c
+LOOP	=	loop/key_events.c loop/camera_orientation.c loop/press_keys.c loop/rotate_keys.c
 all:	$(NAME)
 
 #colors
