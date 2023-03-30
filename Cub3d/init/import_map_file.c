@@ -4,7 +4,6 @@ int	import_map_file(t_cub3d **cub, char *map)
 {
 	char	*str;
 	char	*str2;
-	int		i;
 
 	(*cub) = ft_calloc(sizeof(t_cub3d) , 1);
 	(*cub)->files = ft_calloc(sizeof(t_file), 1);
@@ -12,11 +11,9 @@ int	import_map_file(t_cub3d **cub, char *map)
 	str2 = get_next_line((*cub)->files->fd_map);
 	if (!str2)
 		return (EMPTY_MAP);
-	i = 1;
 	str = get_next_line((*cub)->files->fd_map);
 	while (str)
 	{
-		i++;
 		str2 = ft_strjoin(str2, str);
 		free(str);
 		str = get_next_line((*cub)->files->fd_map);

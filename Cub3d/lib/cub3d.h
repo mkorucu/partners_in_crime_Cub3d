@@ -104,6 +104,8 @@ typedef	struct	s_ray
 	double	tex_pos;
 	double	rot_speed;
 	double	move_speed;
+	int		tex_y;
+	int		color;
 }				t_ray;
 
 typedef	struct	s_cub3d
@@ -122,7 +124,7 @@ typedef	struct	s_cub3d
 	t_file	*files;
 	/*	image files		*/
 	t_image screen;
-	t_image	walls[4];
+	t_image	walls[4]; // respectively: north, south, east and west
 	t_image	floor;
 	t_image	ceiling;
 }				t_cub3d;
@@ -146,18 +148,22 @@ void	free_files(t_file *files);
 void	free_array(char **arr);
 
 /*					Initializing				*/
-int	import_map_file(t_cub3d **cub, char *map);
+int		import_map_file(t_cub3d **cub, char *map);
 void    init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
 void	init_direction_vector(t_cub3d *cub);
-void	start(t_cub3d *cub, t_file *files);
 void	setting_ceiling_floor(t_cub3d *cub);
-
+void	start(t_cub3d *cub, t_file *files);
 /*					Key Events					*/
 int	release_key(int	key, t_key *keys);
 int	press_key(int	key, t_key *keys);
 int	ft_exit(void);
 
-/*					Camera Orientations			*/
+/*					Printing Map				*/
+void	print_map(t_cub3d *cub);
 void    camera_orientation(t_cub3d *cub, t_ray *ray, int x);
-
+void	set_image(t_cub3d *cub, t_ray *ray);
+void	line_calculator(t_ray *ray);
+void	perform_dda(t_cub3d *cub, t_ray *ray);
+void    side_checker(t_ray *ray);
+void print_to_screen(t_cub3d *cub, t_ray *ray, int j, int i);
 #endif
