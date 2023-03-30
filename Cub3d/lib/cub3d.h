@@ -98,6 +98,10 @@ typedef	struct	s_ray
 	int		draw_start;
 	int		draw_end;
 	char	wall_side;
+	double	wall_x;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
 }				t_ray;
 
 typedef	struct	s_cub3d
