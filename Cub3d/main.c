@@ -36,11 +36,13 @@ int	event_loop(t_cub3d *cub)
 {
 	setting_ceiling_floor(cub);
 	print_map(cub);
+	key_direction(cub);
 	return (0);
 }
 
 void	start(t_cub3d *cub, t_file *files)
 {
+	insert_character(cub);
 	cub->ray.rot_speed = 0.05;
 	cub->ray.move_speed = 0.1;
     cub->mlx = mlx_init();
