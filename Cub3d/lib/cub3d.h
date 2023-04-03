@@ -152,7 +152,6 @@ void	free_array(char **arr);
 int		import_map_file(t_cub3d **cub, char *map);
 void	init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
 void	init_direction_vector(t_cub3d *cub);
-void	insert_character(t_cub3d *cub);
 void	setting_ceiling_floor(t_cub3d *cub);
 void	start(t_cub3d *cub, t_file *files);
 /*					Key Events					*/

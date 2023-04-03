@@ -16,8 +16,8 @@ static int	compare(t_cub3d *cub, char **str)
 			if (ft_strchr("WESN", str[i][j]))
 			{
 				cub->start_direction = str[i][j];
-				cub->ray.pos_x = j;
-				cub->ray.pos_y = i;
+				cub->ray.pos_x = (double)j + 0.00001;
+				cub->ray.pos_y = (double)i + 0.00001;
 				count++;
 				str[i][j] = '0';
 			}
