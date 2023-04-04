@@ -7,7 +7,7 @@ LIBFT	=	lib/libft/libft.a
 MLX		=	lib/mlx/libmlx.a
 GNL		=	lib/gnl/get_next_line_utils.c lib/gnl/get_next_line.c
 SRC		=	main.c
-CHECKS	=	checkers/extention_check.c checkers/check_characters.c checkers/check_directions.c\
+CHECKS	=	checkers/extension_check.c checkers/check_characters.c checkers/check_directions.c\
 			checkers/checkers.c checkers/check_rgb.c checkers/check_is_open.c checkers/check_wall.c
 FREE	=	free_error/free_array.c free_error/errors.c
 INITS	=	init/import_map_file.c init/init_direction_vector.c init/init_textures.c init/setting_ceiling_floor.c

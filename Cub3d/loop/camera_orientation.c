@@ -90,8 +90,8 @@ void	set_image(t_cub3d *cub, t_ray *ray)
 
 void	camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 {
-	ray->camera_x = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space. ranges [-1,1]
-	ray->ray_dir_x = ray->dir_x + ray->fov_x * ray->camera_x; // ışının yönü, 
+	ray->camera_x = 2 * x / (double)WIDTH - 1;
+	ray->ray_dir_x = ray->dir_x + ray->fov_x * ray->camera_x;
 	ray->ray_dir_y = ray->dir_y + ray->fov_y * ray->camera_x;
 	ray->hit = 0;
 	ray->map_x = (int)ray->pos_x;

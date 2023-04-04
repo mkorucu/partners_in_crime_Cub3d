@@ -136,7 +136,7 @@ void	errors(char *str);
 
 /*					Checkers					*/
 int		checkers(t_cub3d *cub);
-int		extention_check(char *map_name);
+int		extension_check(char *map_name);
 int		check_characters(char **str, t_cub3d *cub);
 int		check_directions(t_file *files);
 int		check_rgb(t_file *files);

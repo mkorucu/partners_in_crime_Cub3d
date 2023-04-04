@@ -1,6 +1,6 @@
 #include "../lib/cub3d.h"
 
-int	extention_check(char *map_name)
+int	extension_check(char *map_name)
 {
 	int	len;
 

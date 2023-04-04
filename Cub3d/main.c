@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 {
 	t_cub3d	*cub;
 
-	if (ac == 2 && !extention_check(av[1]))
+	if (ac == 2 && !extension_check(av[1]))
 	{
 		import_map_file(&cub, av[1]);
 		checkers(cub);
@@ -72,6 +72,5 @@ int	main(int ac, char **av)
 		errors("argument count mismatch\n");
 	else
 		perror("extention mismatch\n");
-	//system("leaks cub3D");
 	return (0);
 }
