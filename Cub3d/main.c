@@ -1,17 +1,21 @@
 #include "lib/cub3d.h"
 
-void print_to_screen(t_cub3d *cub, t_ray *ray, int j, int i)
+void	print_to_screen(t_cub3d *cub, t_ray *ray, int j, int i)
 {
 	ray->tex_y = (int)ray->tex_pos & (cub->t_height - 1);
 	ray->tex_pos += ray->step;
 	if (ray->wall_side == 'N')
-		ray->color = cub->walls[0].address[cub->t_height * ray->tex_y + ray->tex_x];
+		ray->color = cub->walls[0].address[cub->t_height * \
+		ray->tex_y + ray->tex_x];
 	else if (ray->wall_side == 'S')
-		ray->color = cub->walls[1].address[cub->t_height * ray->tex_y + ray->tex_x];
+		ray->color = cub->walls[1].address[cub->t_height * \
+		ray->tex_y + ray->tex_x];
 	else if (ray->wall_side == 'E')
-		ray->color = cub->walls[2].address[cub->t_height * ray->tex_y + ray->tex_x];
+		ray->color = cub->walls[2].address[cub->t_height * \
+		ray->tex_y + ray->tex_x];
 	else if (ray->wall_side == 'W')
-		ray->color = cub->walls[3].address[cub->t_height * ray->tex_y + ray->tex_x];
+		ray->color = cub->walls[3].address[cub->t_height * \
+		ray->tex_y + ray->tex_x];
 	cub->screen.address[j * WIDTH + i] = ray->color;
 }
 
@@ -44,7 +48,7 @@ void	start(t_cub3d *cub, t_file *files)
 {
 	cub->ray.rot_speed = 0.05;
 	cub->ray.move_speed = 0.1;
-    cub->mlx = mlx_init();
+	cub->mlx = mlx_init();
 	cub->mlx_win = mlx_new_window(cub->mlx, WIDTH, HEIGHT, "cub3D");
 	init_direction_vector(cub);
 	init_textures(cub, files, cub->walls, &cub->screen);

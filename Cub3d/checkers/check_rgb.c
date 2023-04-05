@@ -40,7 +40,7 @@ static int	check_validity(char *rgb)
 	return (0);
 }
 
-static void	get_color_line(t_file *files, char **str, int i,int *check)
+static void	get_color_line(t_file *files, char **str, int i, int *check)
 {
 	if (!*str)
 	{

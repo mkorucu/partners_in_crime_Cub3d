@@ -1,6 +1,6 @@
 #include "../lib/cub3d.h"
 
-static void	set_direction(t_file *files, char **str, int i,int *check)
+static void	set_direction(t_file *files, char **str, int i, int *check)
 {
 	if (!*str)
 	{

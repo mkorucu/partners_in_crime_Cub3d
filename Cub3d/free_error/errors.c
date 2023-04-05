@@ -6,7 +6,7 @@
 /*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 23:42:56 by bkeklik           #+#    #+#             */
-/*   Updated: 2023/03/30 20:57:44 by bkeklik          ###   ########.fr       */
+/*   Updated: 2023/04/05 10:27:57 by bkeklik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	errors(char *str)
 {
-	ft_putstr_fd("Error\n",2);
+	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
 	exit (1);
 }

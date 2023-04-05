@@ -22,7 +22,7 @@ void	key_direction(t_cub3d *cub)
 		press_rot_d_key(cub);
 }
 
-int	press_key(int	key, t_key *keys)
+int	press_key(int key, t_key *keys)
 {
 	if (key == 53)
 		exit(0);
@@ -41,7 +41,7 @@ int	press_key(int	key, t_key *keys)
 	return (0);
 }
 
-int	release_key(int	key, t_key *keys)
+int	release_key(int key, t_key *keys)
 {
 	if (key == 53)
 		exit(0);

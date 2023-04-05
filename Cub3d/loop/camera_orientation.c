@@ -44,7 +44,7 @@ void	perform_dda(t_cub3d *cub, t_ray *ray)
 			ray->map_x = 0;
 		if (ray->map_y < 0)
 			ray->map_y = 0;
-		if (cub->map[ray->map_y][ray->map_x] == '1') //-> x,y değil mi
+		if (cub->map[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;
 	}
 	if (ray->side == VERTICAL)
@@ -55,7 +55,7 @@ void	perform_dda(t_cub3d *cub, t_ray *ray)
 
 void	line_calculator(t_ray *ray)
 {
-	ray->line_height =(int)(HEIGHT / ray->perp_wall_dist);
+	ray->line_height = (int)(HEIGHT / ray->perp_wall_dist);
 	ray->draw_start = (HEIGHT - ray->line_height) / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
@@ -96,8 +96,8 @@ void	camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 	ray->hit = 0;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	ray->delta_dist_x = fabs(1/ray->ray_dir_x);
-	ray->delta_dist_y = fabs(1/ray->ray_dir_y);
+	ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
+	ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
 	side_checker(ray);
 	perform_dda(cub, ray);
 	line_calculator(ray);
