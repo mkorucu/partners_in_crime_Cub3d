@@ -39,6 +39,9 @@ void	free_files(t_file *files)
 
 void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
 {
+	int	i;
+	
+	i = 0;
 	if (c->address)
 		free(c->address);
 	if (c->image)
@@ -47,22 +50,14 @@ void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
 		free(f->address);
 	if (f->image)
 		free(f->image);
-	if (walls[0].address)
-		free(walls[0].address);
-	if (walls[0].image)
-		free(walls[0].image);
-	if (walls[1].address)
-		free(walls[1].address);
-	if (walls[1].image)
-		free(walls[1].image);
-	if (walls[2].address)
-		free(walls[2].address);
-	if (walls[2].image)
-		free(walls[2].image);
-	if (walls[3].address)
-		free(walls[3].address);
-	if (walls[3].image)
-		free(walls[3].image);
+	while(walls[i].image)
+	{
+		if(walls[i].address)
+			free(walls[i].address);
+		if(walls[i].image)
+			free(walls[i].image);
+		i++;
+	}
 	if (screen->address)
 		free(screen->address);
 	if (screen->image)
