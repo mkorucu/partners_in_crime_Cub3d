@@ -85,7 +85,8 @@ void	set_image(t_cub3d *cub, t_ray *ray)
 	else if (ray->side == 1 && ray->step_y == -1)
 		ray->tex_x = cub->t_width - ray->tex_x - 1;
 	ray->step = 1.0 * cub->t_height / ray->line_height;
-	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * ray->step;
+	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) \
+	* ray->step;
 }
 
 void	camera_orientation(t_cub3d *cub, t_ray *ray, int x)

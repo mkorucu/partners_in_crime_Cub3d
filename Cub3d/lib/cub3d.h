@@ -124,9 +124,8 @@ typedef struct s_cub3d
 	t_ray	ray;
 	t_key	keys;
 	t_file	*files;
-	/*	image files		*/
 	t_image	screen;
-	t_image	walls[4]; // respectively: north, south, east and west
+	t_image	walls[4];
 	t_image	floor;
 	t_image	ceiling;
 }				t_cub3d;
