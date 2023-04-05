@@ -60,16 +60,16 @@ void	line_calculator(t_ray *ray)
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	ray->draw_end = (HEIGHT + ray->line_height) / 2;
-	if (ray->draw_end > HEIGHT)
+	if (ray->draw_end >= HEIGHT)
 		ray->draw_end = HEIGHT - 1;
 	if (ray->side == VERTICAL && ray->step_x == 1)
 		ray->wall_side = 'E';
 	else if (ray->side == VERTICAL && ray->step_x == -1)
 		ray->wall_side = 'W';
 	else if (ray->side == HORIZONTAL && ray->step_y == 1)
-		ray->wall_side = 'N';
-	else if (ray->side == HORIZONTAL && ray->step_y == -1)
 		ray->wall_side = 'S';
+	else if (ray->side == HORIZONTAL && ray->step_y == -1)
+		ray->wall_side = 'N';
 }
 
 void	set_image(t_cub3d *cub, t_ray *ray)
@@ -80,20 +80,22 @@ void	set_image(t_cub3d *cub, t_ray *ray)
 		ray->wall_x = ray->pos_x + ray->perp_wall_dist * ray->ray_dir_x;
 	ray->wall_x -= floor(ray->wall_x);
 	ray->tex_x = (int)(ray->wall_x * (double) cub->t_width);
+	if (ray->side == VERTICAL && ray->step_x == 1)
+		ray->tex_x = cub->t_width - ray->tex_x - 1;
+	else if (ray->side == 1 && ray->step_y == -1)
+		ray->tex_x = cub->t_width - ray->tex_x - 1;
 	ray->step = 1.0 * cub->t_height / ray->line_height;
 	ray->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2) * ray->step;
 }
 
 void	camera_orientation(t_cub3d *cub, t_ray *ray, int x)
 {
-	ray->camera_x = 2 * x / (double)WIDTH - 1; //x-coordinate in camera space. ranges [-1,1]
-	ray->ray_dir_x = ray->dir_x + ray->fov_x * ray->camera_x; // ışının yönü, 
+	ray->camera_x = 2 * x / (double)WIDTH - 1;
+	ray->ray_dir_x = ray->dir_x + ray->fov_x * ray->camera_x;
 	ray->ray_dir_y = ray->dir_y + ray->fov_y * ray->camera_x;
 	ray->hit = 0;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	// ray->delta_dist_x = (ray->ray_dir_x == 0) ? 1e30 : fabs(1/ray->ray_dir_x);
-	// ray->delta_dist_y = (ray->ray_dir_y == 0) ? 1e30 : fabs(1/ray->ray_dir_y);
 	ray->delta_dist_x = fabs(1/ray->ray_dir_x);
 	ray->delta_dist_y = fabs(1/ray->ray_dir_y);
 	side_checker(ray);

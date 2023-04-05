@@ -40,7 +40,7 @@ static int	check_validity(char *rgb)
 	return (0);
 }
 
-static void	set_direction(t_file *files, char **str, int i,int *check)
+static void	get_color_line(t_file *files, char **str, int i,int *check)
 {
 	if (!*str)
 	{
@@ -78,9 +78,9 @@ int	check_rgb(t_file *files)
 	{
 		str = ft_strtrim(ft_strdup(files->map_file[i]), "\t ");
 		if (ft_strcmp(str, "F"))
-			set_direction(files, &files->rgb_f, i, &check);
+			get_color_line(files, &files->rgb_f, i, &check);
 		if (ft_strcmp(str, "C"))
-			set_direction(files, &files->rgb_c, i, &check);
+			get_color_line(files, &files->rgb_c, i, &check);
 		i++;
 		free(str);
 	}

@@ -136,7 +136,7 @@ void	errors(char *str);
 
 /*					Checkers					*/
 int		checkers(t_cub3d *cub);
-int		extention_check(char *map_name);
+int		extension_check(char *map_name);
 int		check_characters(char **str, t_cub3d *cub);
 int		check_directions(t_file *files);
 int		check_rgb(t_file *files);
@@ -152,7 +152,6 @@ void	free_array(char **arr);
 int		import_map_file(t_cub3d **cub, char *map);
 void	init_textures(t_cub3d *cub, t_file *file, t_image *walls, t_image *s);
 void	init_direction_vector(t_cub3d *cub);
-void	insert_character(t_cub3d *cub);
 void	setting_ceiling_floor(t_cub3d *cub);
 void	start(t_cub3d *cub, t_file *files);
 /*					Key Events					*/
