@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_array.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkorucu <mkorucu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/05 12:44:53 by mkorucu           #+#    #+#             */
+/*   Updated: 2023/04/05 12:44:54 by mkorucu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../lib/cub3d.h"
 
 void	free_array(char **arr)
@@ -40,7 +52,7 @@ void	free_files(t_file *files)
 void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
 {
 	int	i;
-	
+
 	i = 0;
 	if (c->address)
 		free(c->address);
@@ -50,11 +62,11 @@ void	free_images(t_image *c, t_image *f, t_image *walls, t_image *screen)
 		free(f->address);
 	if (f->image)
 		free(f->image);
-	while(walls[i].image)
+	while (walls[i].image)
 	{
-		if(walls[i].address)
+		if (walls[i].address)
 			free(walls[i].address);
-		if(walls[i].image)
+		if (walls[i].image)
 			free(walls[i].image);
 		i++;
 	}
