@@ -61,7 +61,7 @@ $(NAME): $(OBJS)
 	@ar $(ARFLAGS) $(NAME).a $(OBJS)
 
 %.o: %.c $(INC)
-	@echo $(R)Complining [$<]
+	@echo $(R)compiling [$<]
 	@$(CC) -c $< -o $@ $(CFLAGS)
 
 clean:

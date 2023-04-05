@@ -37,7 +37,7 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@echo $(BLUE)cub3d is ready! $(RESET)
 
 %.o: %.c $(INC)
-	@echo $(GREEN)Complining [$<]
+	@echo $(GREEN)compiling [$<]
 	@${CC} -c $< -o $@ -Wall -Werror -Wextra -g
 
 clean:
