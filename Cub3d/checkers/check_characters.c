@@ -13,12 +13,11 @@ static int	compare(t_cub3d *cub, char **str)
 		j = -1;
 		while (str[i][++j])
 		{
-			if (ft_strchr("WESN", str[i][j]))
+			if (ft_strchr("WESN", str[i][j]) && ++count)
 			{
 				cub->start_direction = str[i][j];
-				cub->ray.pos_x = (double)j + 0.00001;
-				cub->ray.pos_y = (double)i + 0.00001;
-				count++;
+				cub->ray.pos_x = (double)j - 0.01;
+				cub->ray.pos_y = (double)i - 0.01;
 				str[i][j] = '0';
 			}
 			else if (!ft_strchr("10 \t", str[i][j]))

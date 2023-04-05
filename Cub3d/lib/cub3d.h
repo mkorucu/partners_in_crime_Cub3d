@@ -157,12 +157,8 @@ void	start(t_cub3d *cub, t_file *files);
 int		release_key(int key, t_key *keys);
 int		press_key(int key, t_key *keys);
 void	key_direction(t_cub3d *cub);
-void	press_w_key(t_cub3d *cub3d);
-void	press_s_key(t_cub3d *cub3d);
-void	press_a_key(t_cub3d *cub3d);
-void	press_d_key(t_cub3d *cub3d);
-void	press_rot_d_key(t_cub3d *cub3d);
-void	press_rot_a_key(t_cub3d *cub3d);
+void	press_direction_keys(t_cub3d *cub, t_ray *ray, int sign, char key);
+void	rotation_keys(t_ray *ray, int sign);
 int		ft_exit(void);
 /*					Printing Map				*/
 void	print_map(t_cub3d *cub);

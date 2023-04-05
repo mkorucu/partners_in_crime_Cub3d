@@ -40,12 +40,12 @@ static int	check_validity(char *rgb)
 	return (0);
 }
 
-static void	get_color_line(t_file *files, char **str, int i, int *check)
+static void	get_color_line(char *line, char **str, int *check)
 {
 	if (!*str)
 	{
 		(*check)++;
-		*str = ft_strdup(&files->map_file[i][1]);
+		*str = ft_strdup(&line[1]);
 		*str = ft_strtrim(*str, "\t ");
 	}
 }
@@ -78,9 +78,9 @@ int	check_rgb(t_file *files)
 	{
 		str = ft_strtrim(ft_strdup(files->map_file[i]), "\t ");
 		if (ft_strcmp(str, "F"))
-			get_color_line(files, &files->rgb_f, i, &check);
+			get_color_line(str, &files->rgb_f, &check);
 		if (ft_strcmp(str, "C"))
-			get_color_line(files, &files->rgb_c, i, &check);
+			get_color_line(str, &files->rgb_c, &check);
 		i++;
 		free(str);
 	}

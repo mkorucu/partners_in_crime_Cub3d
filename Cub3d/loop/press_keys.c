@@ -1,41 +1,23 @@
 #include "../lib/cub3d.h"
 
-void	press_w_key(t_cub3d *cub3d)
+void	press_direction_keys(t_cub3d *cub, t_ray *ray, int sign, char key)
 {
-	if (cub3d->map[(int)(cub3d->ray.pos_y)][(int)(cub3d->ray.pos_x + \
-	cub3d->ray.dir_x * cub3d->ray.move_speed)] != '1')
-		cub3d->ray.pos_x += cub3d->ray.dir_x * cub3d->ray.move_speed;
-	if (cub3d->map[(int)(cub3d->ray.pos_y + cub3d->ray.dir_y * \
-	cub3d->ray.move_speed)][(int)(cub3d->ray.pos_x)] != '1')
-		cub3d->ray.pos_y += cub3d->ray.dir_y * cub3d->ray.move_speed;
-}
-
-void	press_s_key(t_cub3d *cub3d)
-{
-	if (cub3d->map[(int)(cub3d->ray.pos_y)][(int)(cub3d->ray.pos_x - \
-	cub3d->ray.dir_x * cub3d->ray.move_speed)] != '1')
-		cub3d->ray.pos_x -= cub3d->ray.dir_x * cub3d->ray.move_speed;
-	if (cub3d->map[(int)(cub3d->ray.pos_y - cub3d->ray.dir_y * \
-	cub3d->ray.move_speed)][(int)(cub3d->ray.pos_x)] != '1')
-		cub3d->ray.pos_y -= cub3d->ray.dir_y * cub3d->ray.move_speed;
-}
-
-void	press_a_key(t_cub3d *cub3d)
-{
-	if (cub3d->map[(int)(cub3d->ray.pos_y)][(int)(cub3d->ray.pos_x - \
-	cub3d->ray.fov_x * cub3d->ray.move_speed)] != '1')
-		cub3d->ray.pos_x -= cub3d->ray.fov_x * cub3d->ray.move_speed;
-	if (cub3d->map[(int)(cub3d->ray.pos_y - cub3d->ray.fov_y * \
-	cub3d->ray.move_speed)][(int)(cub3d->ray.pos_x)] != '1')
-		cub3d->ray.pos_y -= cub3d->ray.fov_y * cub3d->ray.move_speed;
-}
-
-void	press_d_key(t_cub3d *cub3d)
-{
-	if (cub3d->map[(int)(cub3d->ray.pos_y)][(int)(cub3d->ray.pos_x + \
-	cub3d->ray.fov_x * cub3d->ray.move_speed)] != '1')
-		cub3d->ray.pos_x += cub3d->ray.fov_x * cub3d->ray.move_speed;
-	if (cub3d->map[(int)(cub3d->ray.pos_y + cub3d->ray.fov_y * \
-	cub3d->ray.move_speed)][(int)(cub3d->ray.pos_x)] != '1')
-		cub3d->ray.pos_y += cub3d->ray.fov_y * cub3d->ray.move_speed;
+	if (key == 'w' || key == 's')
+	{
+		if (cub->map[(int)(ray->pos_y)][(int)(ray->pos_x + \
+		ray->dir_x * ray->move_speed * sign)] != '1')
+			ray->pos_x += ray->dir_x * ray->move_speed * sign;
+		if (cub->map[(int)(ray->pos_y + ray->dir_y * ray->move_speed * sign)] \
+		[(int)(ray->pos_x)] != '1')
+			ray->pos_y += ray->dir_y * ray->move_speed * sign;
+	}
+	if (key == 'a' || key == 'd')
+	{
+		if (cub->map[(int)(ray->pos_y)][(int)(ray->pos_x + \
+		ray->fov_x * ray->move_speed * sign)] != '1')
+			ray->pos_x += ray->fov_x * ray->move_speed * sign;
+		if (cub->map[(int)(ray->pos_y + ray->fov_y * ray->move_speed * sign)] \
+		[(int)(ray->pos_x)] != '1')
+			ray->pos_y += ray->fov_y * ray->move_speed * sign;
+	}
 }

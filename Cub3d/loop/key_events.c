@@ -9,17 +9,17 @@ int	ft_exit(void)
 void	key_direction(t_cub3d *cub)
 {
 	if (cub->keys.w)
-		press_w_key(cub);
+		press_direction_keys(cub, &cub->ray, 1, 'w');
 	if (cub->keys.s)
-		press_s_key(cub);
-	if (cub->keys.a)
-		press_a_key(cub);
+		press_direction_keys(cub, &cub->ray, -1, 's');
 	if (cub->keys.d)
-		press_d_key(cub);
+		press_direction_keys(cub, &cub->ray, 1, 'd');
+	if (cub->keys.a)
+		press_direction_keys(cub, &cub->ray, -1, 'a');
 	if (cub->keys.right)
-		press_rot_a_key(cub);
+		rotation_keys(&cub->ray, 1);
 	if (cub->keys.left)
-		press_rot_d_key(cub);
+		rotation_keys(&cub->ray, -1);
 }
 
 int	press_key(int key, t_key *keys)
