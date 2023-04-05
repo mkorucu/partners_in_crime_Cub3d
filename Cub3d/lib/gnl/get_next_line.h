@@ -6,10 +6,9 @@
 /*   By: bkeklik <bkeklik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:45:45 by bkeklik           #+#    #+#             */
-/*   Updated: 2023/04/05 10:45:46 by bkeklik          ###   ########.fr       */
+/*   Updated: 2023/04/05 10:59:11 by bkeklik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
