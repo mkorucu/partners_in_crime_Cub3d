@@ -1,11 +1,10 @@
 
-NO  img/ael-bekk.xpm
+NO assets/no.xpm
 
-SO img/mel-hada.xpm
+SO assets/so.xpm
+WE assets/we.xpm
 
-WE img/mabenchi.xpm
-
-EA img/zboudair.xpm
+EA assets/ea.xpm
 
 F 98,105,109
 C 80,130,200
